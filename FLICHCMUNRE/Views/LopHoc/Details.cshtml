@@ -1,0 +1,58 @@
+﻿@model FLICHCMUNRE.Models.OneLopHocResult
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="text-white container">
+    <h4>Chi Tiết</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MALOP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MALOP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TENLOP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENLOP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOLUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOLUONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOPHONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOPHONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAKH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

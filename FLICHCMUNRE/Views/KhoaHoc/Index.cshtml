@@ -1,0 +1,217 @@
+﻿@model IEnumerable<FLICHCMUNRE.Models.AllKhoaHocGocResult>
+
+@using FLICHCMUNRE.Models;
+@{
+    ViewBag.Title = "QUẢN LÝ KHÓA HỌC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //String date = DateTime.Now.ToString("dd/MM/yyyy").Replace('-', '/');
+
+}
+
+<div class="d-flex justify-content-between ">
+    <div class="w-25 bg-info d-flex pt-5 " style="height: 100vh; ">
+        <center>
+
+            <div class="mt-3">
+                @Html.ActionLink("QUẢN LÝ TÀI KHOẢN", "QLAdmin", "TaiKhoan", "TaiKhoan", new { @class = "p-3 bg-info  mt-3 w-100 rounded  text-white" })
+            </div>
+
+
+            <div class="mt-5">
+                @Html.ActionLink("QUẢN LÝ KHÓA HỌC", "Index", "KhoaHoc", "KhoaHoc", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+
+
+            <div class="mt-5">
+                @Html.ActionLink("QUẢN LÝ LỚP HỌC", "Index", "LopHoc", "LopHoc", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+            </div>
+
+
+            <div class="mt-5">
+                @Html.ActionLink("QUẢN LÝ HỌC VIÊN", "Index", "HocVien", "HocVien", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+
+            <div class="mt-5">
+                @Html.ActionLink("QUẢN LÝ GIẢNG VIÊN", "Index", "GiangVien", "GiangVien", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+
+            <div class="mt-5">
+                @Html.ActionLink("QUẢN LÝ THỂ LOẠI", "Index", "TheLoai", "TheLoai", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+
+            <div class="mt-5">
+                @Html.ActionLink("HOME", "Index", "Home", "Home", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+            <div class="mt-5">
+                @Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "Home", "Home", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+        </center>
+    </div>
+
+    <div class="container mt-4 w-50" >
+        <h2 class=" text-center text-white">THÊM KHÓA HỌC</h2>
+        <div class=" bg-white card text-center " style="height:80vh; overflow-y:scroll">
+            @using (Html.BeginForm("Create", "KhoaHoc", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="w-100 mt-5">
+                    <b><p class="text-left" style="margin-left: 60px">Mã Khóa Học<span class="text-danger">*</span></p></b>
+
+                    <input name="MaKH" placeholder="Nhập mã khóa học" class="w-75 p-2 rounded border-light" value="" />
+                    <p class="text-danger">@ViewBag.Error</p>
+
+                </div>
+
+                <div class="w-100 mt-5">
+                    <b><p class="text-left" style="margin-left: 60px">Tên Khóa Học <span class="text-danger">*</span></p></b>
+
+                    <input name="TenKH" placeholder="Nhập tên khóa học" class="w-75 p-2 rounded border-light" value="" />
+                    <p class="text-danger">@ViewBag.Error</p>
+
+                </div>
+                <div class="w-100 mt-4">
+                    <b><p class="text-left" style="margin-left: 60px">Giá Khóa Học <span class="text-danger">*</span></p></b>
+
+                    <input name="Gia" placeholder="Nhập Giá khóa học" class="w-75 p-2 rounded border-light" type="number" value="" />
+                    <p class="text-danger">@ViewBag.Error</p>
+
+                </div>
+                <div class="w-100 mt-4">
+                    <b><p class="text-left" style="margin-left: 60px">Loại Khóa Học <span class="text-danger">*</span></p></b>
+
+                    <select value="" style="outline: none" class="w-75   p-2 rounded " name="MaLoai">
+                       
+                        @foreach (var l in @ViewData["AllTL"] as List<AllTheLoaiResult>)
+                        {
+                            <option value="@l.MALOAI">@l.TENLOAI</option>
+                        }
+
+                    </select>
+                </div>
+                <div class="w-100 mt-4">
+                    <b><p class="text-left" style="margin-left: 60px">Hình Thức <span class="text-danger">*</span></p></b>
+
+                    <select value="" style="outline: none" class="w-75   p-2 rounded " name="MaHT">
+                        @foreach (var ht in ViewData["AllHT"] as List<AllHinhThucResult>)
+                        {
+                            <option value="@ht.MAHT">@ht.TENHT</option>
+                        }
+
+                    </select>
+                </div>
+                <div class="w-100 mt-4">
+                    <b><p class="text-left" style="margin-left: 60px">Thời Gian Bắt Đầu <span class="text-danger">*</span></p></b> <input class="w-75   p-2 rounded border-light" required="required" type="date" name="NgayBD" value="" />
+                    <p class="text-danger"></p>
+
+                </div>
+                <div class="w-100 mt-3">
+                    <b><p class="text-left" style="margin-left: 60px">Thời Gian Kết Thúc <span class="text-danger">*</span></p></b> <input class="w-75  p-2 rounded border-light" required="required" type="date" name="NgayKT" value="" />
+                    <p class="text-danger"></p>
+
+                </div>
+
+                <button type="submit" class="btn bg-info w-50 mt-3 text-white mb-5">Tạo khóa học</button>
+            }
+
+        </div>
+
+    </div>
+    <div class="container mt-4 w-100 w-100">
+        <div class=" ">
+            <h2 class="text-center text-white">DANH SÁCH CÁC CÁC KHÓA HỌC</h2>
+            <div style="height: 1000px;max-height: 70vh; overflow-y: scroll" class="bg-white card">
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayName("Mã")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Tên Khóa Học")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Giá")
+                        </th>
+                        <th>
+                            @Html.DisplayName("TGBD")
+                        </th>
+                        <th>
+                            @Html.DisplayName("TGKT")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Mã Loại")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Mã Hình Thức")
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MAKH)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TENKH)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GIA)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TGBD)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TGKT)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MALOAI)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MAHT)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+            </div>
+
+            <div class=" bg-white card text-center mt-3">
+
+                <div>
+
+                    @using (Html.BeginForm("Search", "KhoaHoc", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="d-flex justify-content-center align-items-center p-2">
+                            <input type="text" name="Search" placeholder="Nhập username cần tìm..."
+                                   class="w-75 p-2 rounded border-light mr-2">
+
+                            <input type="submit" value="Tìm Kiếm" class=" w-25 btn bg-info p-2 text-white" />
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+

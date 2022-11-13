@@ -1,0 +1,89 @@
+﻿@model FLICHCMUNRE.Models.OneKhoaHocResult
+
+
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container" style="">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4 class="text-center text-white">CẬP NHẬT THÔNG TIN KHÓA HỌC</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="form-group text-white">
+                @Html.Label("Mã Khóa Học", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MAKH, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.MAKH, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group text-white">
+                @Html.Label("Tên Khóa Học", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TENKH, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TENKH, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group text-white">
+                @Html.Label("Giá Khóa Học", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.GIA, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.GIA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group text-white">
+                @Html.Label("Thời Gian Bắt Đầu", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TGBD, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TGBD, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group text-white">
+                @Html.Label("Thời Gian Kết Thúc", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TGKT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TGKT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group text-white">
+                @Html.Label("Mã Loại", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MALOAI, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MALOAI, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group text-white">
+                @Html.Label("Mã Hình Thức", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MAHT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MAHT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group text-white text-center">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-primary w-25" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="text-white">
+        @Html.ActionLink("Back to List", "Index", new { @class = "text-white", style = "color:#fff" })
+    </div>
+
+</div>

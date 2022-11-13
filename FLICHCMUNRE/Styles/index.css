@@ -1,0 +1,291 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 9%;
+    z-index: 10000;
+    background-color: rgb(255, 0, 0);
+}
+
+    .header .navbar a {
+        display: inline-block;
+        padding: 1.5rem 2rem;
+        font-size: 1.7rem;
+        color: rgb(7, 7, 7);
+        text-decoration: none;
+    }
+
+        .header .navbar a:hover {
+            background: rgb(251, 117, 117);
+        }
+
+body {
+    background-color: rgb(247, 247, 245);
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+input, button {
+    outline: none;
+}
+
+.hover:hover {
+    background-color: #ccc;
+}
+
+.hover-row:hover {
+    background-color: #2d494d !important;
+}
+
+li {
+    list-style-type: none;
+}
+
+.active {
+    display: block;
+}
+
+.hide {
+    display: none
+}
+
+.tutorialPopup {
+    position: absolute;
+    z-index: 1;
+    width: 500px;
+    top: -200px;
+    left: 300px;
+    display: none;
+}
+
+.tutorial:hover .tutorialPopup {
+    display: block;
+}
+
+.itemAbsoluteParent,
+.itemAbsoluteChild {
+    display: none;
+}
+
+.itemRelativeParent:hover .itemAbsoluteParent {
+    display: block;
+}
+
+.itemAbsoluteChild:hover .itemAbsoluteChild {
+    display: block;
+}
+
+.ClassInfoAbsolute {
+    position: absolute;
+    top: 450px;
+    right: 500px;
+}
+
+.PositionRelative {
+    position: relative;
+}
+
+.hide {
+    display: none;
+}
+
+
+.logo {
+    max-height: 70px;
+    border-radius: 50%;
+}
+
+.text-slogan {
+    color: #fff;
+    font-size: 30px;
+}
+
+.solgan {
+    display: inline-block;
+    line-height: 30px;
+    color: #1ab7fa;
+    font-weight: 900;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+
+
+
+.hover:hover {
+    opacity: 0.7;
+}
+
+.contact-img {
+    position: fixed;
+    z-index: 1;
+    right: 20px;
+    bottom: 50px;
+    border-radius: 50%;
+    height: 80px;
+    cursor: pointer;
+}
+
+.contact .nth1 {
+    bottom: 150px;
+}
+
+.box {
+    display: none;
+    min-height: 450px;
+    width: 400px;
+    text-align: center;
+    right: 60px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: fixed;
+    z-index: 1;
+    right: 100px;
+    bottom: 50px;
+    background-color: #fff;
+}
+
+.active {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.exit {
+    font-size: 40px;
+    cursor: pointer;
+    line-height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+    .exit:hover {
+        background-color: rgba(43, 37, 37, 0.123);
+    }
+
+.btn-chat {
+    border: none;
+    background-color: #0876d5;
+    color: #fff;
+    padding: 20px;
+    width: 300px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 100px;
+}
+
+.container {
+    position: relative;
+}
+
+
+
+.icon {
+    min-width: 50px;
+    color: #fa771a;
+    font-size: 30px;
+}
+
+    .icon:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+
+
+
+.form-col2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.center {
+    text-align: center;
+    max-width: 50px;
+}
+
+.btn-center {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.more-info {
+    cursor: pointer;
+}
+
+    .more-info:hover {
+        opacity: 80%;
+    }
+
+th {
+    font-size: 25px;
+}
+
+.table-col {
+}
+
+
+
+.info-cty {
+    margin-top: 16px;
+}
+
+    .info-cty a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .info-cty .info-detail {
+        margin-top: 8px;
+        color: #fff;
+    }
+
+.icon-width {
+    min-width: 24px;
+}
+
+
+
+.content {
+    margin-top: 300px;
+}
+
+.item {
+    text-align: center;
+}
+
+.active {
+    display: block;
+}
+
+.hide {
+    display: none;
+}

@@ -1,0 +1,36 @@
+﻿@model FLICHCMUNRE.Models.OneTaiKhoanResult
+
+<div>
+    <h4>Chi tiết tài khoản</h4>
+    <hr />
+    <dl class="dl-horizontal d-flex">
+        <dt>
+            @Html.DisplayName("Tài Khoản: ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TK)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Mật Khẩu: ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MK)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Vai Tro: ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VAITRO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "QLAdmin")
+</p>

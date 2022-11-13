@@ -1,0 +1,405 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Trung tâm tin học ngoại ngữ HCMUNRE</title>
+</head>
+<style>
+
+
+    .logo {
+        max-height: 70px;
+        border-radius: 50%;
+    }
+
+    .text-slogan {
+        color: #fff;
+        font-size: 30px;
+    }
+
+    .solgan {
+        display: inline-block;
+        line-height: 30px;
+        color: #1ab7fa;
+        font-weight: 900;
+        font-size: 30px;
+        margin-left: 10px;
+    }
+
+
+
+
+    .hover:hover {
+        opacity: 0.7;
+    }
+
+    .contact-img {
+        position: fixed;
+        z-index: 1;
+        right: 20px;
+        bottom: 50px;
+        border-radius: 50%;
+        height: 80px;
+        cursor: pointer;
+    }
+
+    .contact .nth1 {
+        bottom: 150px;
+    }
+
+    .box {
+        display: none;
+        min-height: 450px;
+        width: 400px;
+        text-align: center;
+        right: 60px;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        position: fixed;
+        z-index: 1;
+        right: 100px;
+        bottom: 50px;
+        background-color: #fff;
+    }
+
+    .active {
+        display: block;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .box-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+
+    .exit {
+        font-size: 40px;
+        cursor: pointer;
+        line-height: 70px;
+        width: 70px;
+        border-radius: 50%;
+    }
+
+        .exit:hover {
+            background-color: rgba(43, 37, 37, 0.123);
+        }
+
+    .btn-chat {
+        border: none;
+        background-color: #0876d5;
+        color: #fff;
+        padding: 20px;
+        width: 300px;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-top: 100px;
+    }
+
+    .container {
+        position: relative;
+    }
+
+
+
+    .icon {
+        min-width: 50px;
+        color: #fa771a;
+        font-size: 30px;
+    }
+
+        .icon:hover {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+
+
+
+    .form-col2 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .center {
+        text-align: center;
+        max-width: 50px;
+    }
+
+    .btn-center {
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    .more-info {
+        cursor: pointer;
+    }
+
+        .more-info:hover {
+            opacity: 80%;
+        }
+
+    th {
+        font-size: 25px;
+    }
+
+    .table-col {
+    }
+
+
+
+    .info-cty {
+        margin-top: 16px;
+    }
+
+        .info-cty a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .info-cty .info-detail {
+            margin-top: 8px;
+            color: #fff;
+        }
+
+    .icon-width {
+        min-width: 24px;
+    }
+
+
+
+    .content {
+        margin-top: 300px;
+    }
+
+    .item {
+        text-align: center;
+    }
+
+    .active {
+        display: block;
+    }
+
+    .hide {
+        display: none;
+    }
+</style>
+<body>
+    <div class="pb-3" style="background-image: url('../imgs/header-bg.png'); background-size:contain ">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center pt-4">
+                <div class="logo">
+                    <img src="../imgs/logohcmunre.png" alt="" class="" style="height:100px">
+                </div>
+                <div class="text-white " style="display:flex;justify-content:space-between;align-items:center">
+
+                    <a class="text-white " style="width: 150px; font-weight: bold;" href="searchCourseIndex">TRANG CHỦ</a>
+                    <a class="text-white " style="width: 150px; font-weight: bold;" href="LoadFormInfo">ĐĂNG KÝ HỌC</a>
+                    <a class="text-white " style="width: 150px; font-weight: bold;" href="LoadFormInfoDangKyThi">
+                        ĐĂNG KÝ
+                        THI
+                    </a>
+                    <a class="text-white " style="width: 150px; font-weight: bold;" href="tracuudiem.jsp">
+                        TRA CỨU
+                        ĐIỂM
+                    </a>
+                    <a class="text-white " style="width: 150px; font-weight: bold;" href="huongdansudung.jsp">
+                        HƯỚNG
+                        DẪN
+                    </a>
+                    <a class="text-white " style="width: 150px; font-weight: bold;" href="dangnhap.jsp">ĐĂNG NHẬP</a>
+                </div>
+            </div>
+            <div class="text-white text-center mt-5">
+                <h6 class="text-info bg-white p-2 mb-5">
+                    Số tài khoản: 0261003491765, Chi nhánh Vietcombank Thủ Thiêm, Trung
+                    tâm
+                    Ngoại ngữ - Tin học Đại học Tài nguyên và Môi trường TPHCM
+                </h6>
+                <h1 class="mb-5">
+                    TRUNG TÂM TIN HỌC - NGOẠI NGỮ <br />TRƯỜNG ĐẠI HỌC TÀI NGUYÊN VÀ MÔI TRƯỜNG TP. HCM
+                </h1>
+                <form action="searchCourseIndex" method="processRequest">
+                    <input name="searchCourseIndex" "
+                           class="position-relative p-3 rounded w-75 border-primary pl-5 border-0 bg-light "
+                           placeholder="Tìm kiếm khóa học">
+
+                    <button class="btn text-white p-3"
+                            style="background: linear-gradient(90deg, #39cfca 0%, #3279bb 100%); border: 2px solid #fff;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <form action="searchCourseIndex" method="processRequest">
+                    <select name="searchCourseIndex" class="w-25 p-2" style="outline: none; border-radius: 10px; border: 1px solid #fff;">
+                        <c:forEach items="${listC}" var="l">
+
+                            <option value="${l.getTenKH()}">
+                                ${l.getTenKH()}
+                            </option>
+
+                        </c:forEach>
+                    </select>
+                    <input type="submit" class="p-2 text-white ml-2" value="Tìm" style="background: linear-gradient(90deg, #39cfca 0%, #3279bb 100%);border: 1px solid #fff; border-radius: 5px" />
+                </form>
+            </div>
+        </div>
+        <div class="container d-flex justify-content-center align-items-center mt-3 text-white" style="flex-wrap: wrap">
+
+            <c:forEach items="${listC}" var="l">
+                <div class="" style="height: 385px; width: 300px; max-width: 270px">
+                    <c:if test="${l.getMaLoai()==1}"><img src="imgs/tinhocvanphon.png" style="height:250px; width: 250px; border-radius: 25px" /></c:if>
+                    <c:if test="${l.getMaLoai()==2}"><img src="imgs/h1.png" style="height:250px; width: 250px" /></c:if>
+                    <p style="max-width: 270px;" class="p-2">
+                        Khóa Học: ${l.getTenKH()}<br>
+                        Giá: <c:if test="${l.getGia()!=0}"> ${l.getGia()}</c:if><c:if test="${l.getGia()==0}"> FREE</c:if><br>
+                        TGBD: ${l.getNgayBD()} <br> TGBD: ${l.getNgayKT()}
+                    </p>
+
+                </div>
+
+            </c:forEach>
+        </div>
+    </div>
+    </c:if>
+    <div class="contact">
+        <a href="https://zalo.me/0384319201" class="d hover"><img src="../imgs/zalo.png" alt="" class=" contact-img nth1"></a>
+        <img src="../imgs/mess.png" id="mess" alt="" class="contact-img hover">
+
+    </div>
+    <div class="box " id="box">
+
+        <div class="box-header ">
+            <img src="imgs/logohcmunre.png" alt="" class="logo hover">
+            <p class="exit" id="exit">-</p>
+        </div>
+        <h3>Chat với CFLIT-HCMUNRE</h3>
+        <P class="text">Hi! Can we help you?</P>
+        <a class="hover" href="https://www.facebook.com/messages/t/100022375879766/">
+            <button class="btn-chat text " id="startchat">
+                Bắt
+                đầu chat
+            </button>
+        </a>
+    </div>
+
+    <div class="container-fluid  pt-5 pb-2 text-white " style="background-image: url('imgs/header-bg.png');background-repeat: no-repeat; ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>GIỚI THIỆU FLIC</h3>
+                    Trung tâm Ngoại ngữ - Tin học thuộc Trường Đại học Tài nguyên và Môi trường thành phố Hồ Chí
+                    Minh có
+                    tên giao dịch
+                    quốc tế là
+                    Foreign Languages - Informatics Center (Viết tắt là FLIC).
+
+                </div>
+
+                <div class="col-lg-4">
+                    <h3>THÔNG BÁO</h3>
+                    <i class="fas fa-greater-than mr-2"></i>1-Thông báo khai giảng lớp ôn tập kiến thức tiếng
+                    Anh từ
+                    bậc 2 đến bậc 5 theo Khung năng lực ngoại
+                    ngữ 6 bậc dùng cho Việt Nam – Khoá tháng 10/2022<br>
+                    <i class="fas fa-greater-than mr-2"></i>2-Thông báo tổ chức thi và cấp chứng chỉ tiếng Anh
+                    bậc
+                    2, bậc 3 – 5 theo Khung năng lực ngoại ngữ 6
+                    bậc dùng cho Việt Nam – Khoá thi tháng 10<br>
+                    <i class="fas fa-greater-than mr-2"></i>Thông báo khai giảng lớp ôn tập kiến thức tiếng Anh
+                    từ
+                    bậc 1 đến bậc 5 theo Khung NLNN 6 bậc dùng
+                    cho Việt Nam – Khóa tháng 12/2022<br>
+                    <i class="fas fa-greater-than mr-2"></i>Thông báo về tổ chức thi và cấp chứng chỉ tiếng Anh
+                    bậc
+                    2, bậc 3-5 – Tháng 7/2022
+
+                </div>
+
+                <div class="col-lg-4">
+                    <h3>THÔNG TIN LIÊN HỆ</h3>
+                    236B, Lê Văn Sỹ, Quận Tân Bình, Tp.HCM<br>
+                    0384319201<br>
+                    daihoctainguyenvamoitruong@flic.edu.com.com<br>
+                    Website: <a href="https://www.hcmunre.edu.vn" class="text-white">https://www.hcmunre.edu.vn</a><br>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+
+    <div class="container-fluid  pt-2 pb-2 text-white" style="background-image: url('../imgs/header-bg.png');background-repeat: no-repeat; ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>GIỚI THIỆU FLIC</h3>
+                    Trung tâm Ngoại ngữ - Tin học thuộc Trường Đại học Tài nguyên và Môi trường thành phố Hồ Chí
+                    Minh có
+                    tên giao dịch
+                    quốc tế là
+                    Foreign Languages - Informatics Center (Viết tắt là FLIC).
+
+                </div>
+
+                <div class="col-lg-4">
+                    <h3>THÔNG BÁO</h3>
+                    <i class="fas fa-greater-than mr-2"></i>1-Thông báo khai giảng lớp ôn tập kiến thức tiếng
+                    Anh từ
+                    bậc 2 đến bậc 5 theo Khung năng lực ngoại
+                    ngữ 6 bậc dùng cho Việt Nam – Khoá tháng 10/2022<br>
+                    <i class="fas fa-greater-than mr-2"></i>2-Thông báo tổ chức thi và cấp chứng chỉ tiếng Anh
+                    bậc
+                    2, bậc 3 – 5 theo Khung năng lực ngoại ngữ 6
+                    bậc dùng cho Việt Nam – Khoá thi tháng 10<br>
+                    <i class="fas fa-greater-than mr-2"></i>Thông báo khai giảng lớp ôn tập kiến thức tiếng Anh
+                    từ
+                    bậc 1 đến bậc 5 theo Khung NLNN 6 bậc dùng
+                    cho Việt Nam – Khóa tháng 12/2022<br>
+                    <i class="fas fa-greater-than mr-2"></i>Thông báo về tổ chức thi và cấp chứng chỉ tiếng Anh
+                    bậc
+                    2, bậc 3-5 – Tháng 7/2022
+
+                </div>
+
+                <div class="col-lg-4">
+                    <h3>THÔNG TIN LIÊN HỆ</h3>
+                    236B, Lê Văn Sỹ, Quận Tân Bình, Tp.HCM<br>
+                    0384319201<br>
+                    daihoctainguyenvamoitruong@flic.edu.com.com<br>
+                    Website: <a href="https://www.hcmunre.edu.vn" class="text-white">https://www.hcmunre.edu.vn</a><br>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

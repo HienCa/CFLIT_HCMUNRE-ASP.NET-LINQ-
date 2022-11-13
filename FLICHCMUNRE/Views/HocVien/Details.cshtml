@@ -1,0 +1,63 @@
+﻿@model FLICHCMUNRE.Models.OneHocVienResult
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="  container text-white">Thông Tin Chi Tiết</h4>
+
+<div class=" d-flex container text-white text-center">
+    <div>
+
+        @Html.DisplayNameFor(model => model.MAHV):
+
+        @Html.DisplayFor(model => model.MAHV)</br>
+
+        @Html.DisplayNameFor(model => model.HOTEN):
+
+        @Html.DisplayFor(model => model.HOTEN)</br>
+
+        @Html.DisplayNameFor(model => model.EMAIL):
+
+        @Html.DisplayFor(model => model.EMAIL)</br>
+
+        @Html.DisplayNameFor(model => model.CCCD):
+
+        @Html.DisplayFor(model => model.CCCD)</br>
+
+        @Html.DisplayNameFor(model => model.SDT):
+
+        @Html.DisplayFor(model => model.SDT)
+    </div>
+    <div>
+        @Html.DisplayNameFor(model => model.Pass):
+
+        @Html.DisplayFor(model => model.Pass)</br>
+
+        @Html.DisplayNameFor(model => model.GIOITINH):
+
+        @Html.DisplayFor(model => model.GIOITINH)</br>
+
+        @Html.DisplayNameFor(model => model.NOISINH):
+
+        @Html.DisplayFor(model => model.NOISINH)</br>
+
+        @Html.DisplayNameFor(model => model.NGAYSINH):
+
+        @Html.DisplayFor(model => model.NGAYSINH)</br>
+
+        @Html.DisplayNameFor(model => model.LOP):
+
+        @Html.DisplayFor(model => model.LOP)</br>
+
+        @Html.DisplayNameFor(model => model.STATUS): 
+
+        @Html.DisplayFor(model => model.STATUS)</br>
+
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

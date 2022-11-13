@@ -1,0 +1,150 @@
+﻿@model IEnumerable<FLICHCMUNRE.Models.SearchTheLoaiResult>
+@{
+    ViewBag.Title = "QUẢN LÝ THỂ LOẠI";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-between ">
+    <div class="w-25 bg-info d-flex pt-5 " style="height: 100vh; ">
+        <center>
+
+            <div class="mt-3">
+                @Html.ActionLink("QUẢN LÝ TÀI KHOẢN", "QLAdmin", "TaiKhoan", "TaiKhoan", new { @class = "p-3 bg-info  mt-3 w-100 rounded  text-white" })
+            </div>
+
+
+            <div class="mt-5">
+                @Html.ActionLink("QUẢN LÝ KHÓA HỌC", "Index", "KhoaHoc", "KhoaHoc", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+
+
+            <div class="mt-5">
+                @Html.ActionLink("QUẢN LÝ LỚP HỌC", "Index", "LopHoc", "LopHoc", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+            </div>
+
+
+            <div class="mt-5">
+                @Html.ActionLink("QUẢN LÝ HỌC VIÊN", "Index", "HocVien", "HocVien", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+
+            <div class="mt-5">
+                @Html.ActionLink("QUẢN LÝ GIẢNG VIÊN", "Index", "GiangVien", "GiangVien", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+
+            <div class="mt-5">
+                @Html.ActionLink("QUẢN LÝ THỂ LOẠI", "Index", "TheLoai", "TheLoai", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+
+            <div class="mt-5">
+                @Html.ActionLink("HOME", "Index", "Home", "Home", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+            <div class="mt-5">
+                @Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "Home", "Home", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+            </div>
+        </center>
+    </div>
+
+    <div class="container mt-4 w-50">
+        <h2 class=" text-center text-white">THÊM THỂ LOẠI</h2>
+        <div class=" bg-white card text-center ">
+            @using (Html.BeginForm("Create", "TheLoai", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="w-100 mt-5">
+
+                    <p class="text-left" style="margin-left: 60px">
+                        Mã Loại <span class="text-danger">*</span>
+                    </p>
+
+
+                    <input name="MaLoai" placeholder="Nhập mã loại" class="w-75 p-2 rounded border-light" />
+
+
+                </div>
+                <div class="w-100 mt-4">
+
+                    <p class="text-left" style="margin-left: 60px">
+                        Tên Loại <span class="text-danger">*</span>
+                    </p>
+
+
+                    <input class="w-75    p-2 rounded border-light" placeholder="Nhập tên loại" type="text"
+                           name="TenLoai" />
+
+
+                </div>
+
+
+
+                <button type="submit" class="btn bg-info w-50 mt-4 text-white mb-5">Thêm</button>
+            }
+
+        </div>
+
+    </div>
+    <div class="container mt-4 w-100 w-100">
+        <div class=" ">
+            <h2 class="text-center text-white">DANH SÁCH CÁC THỂ LOẠI</h2>
+            <div style="height: 1000px;max-height: 70vh; overflow-y: scroll" class="bg-white card">
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayName("Mã Thể Loại")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Tên Thể Loại")
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MALOAI)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TENLOAI)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+
+            <div class=" bg-white card text-center mt-3">
+
+                <div>
+
+                    @using (Html.BeginForm("Search", "TheLoai", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="d-flex justify-content-center align-items-center p-2">
+                            <input type="text" name="Search" placeholder="Nhập cần tìm..."
+                                   class="w-75 p-2 rounded border-light mr-2">
+
+                            <input type="submit" value="Tìm Kiếm" class=" w-25 btn bg-info p-2 text-white" />
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

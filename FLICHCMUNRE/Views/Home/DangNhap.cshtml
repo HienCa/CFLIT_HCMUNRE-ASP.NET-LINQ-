@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+}
+
+<center>
+    <div class="pb-3" style="background-image: url('../imgs/header-bg.png'); height: 100vh; background-size:contain">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center pt-4">
+                <div class="logo">
+                    <img src="../imgs/logohcmunre.png" alt="" class="" style="height:100px">
+                </div>
+                <div class="text-white " style="display:flex;justify-content:space-between;align-items:center">
+
+                    <a style="width: 150px; font-weight: bold;" href="index.jsp">@Html.ActionLink("Trang Chủ", "Index", "Home", new { @class = "text-white w-25" })</a>
+                    <a class="text-white " style="width: 150px; font-weight: bold;" href="LoadFormInfo">@Html.ActionLink("Đăng Ký Học", "DangKyHoc", "Home", new { @class = "text-white w-25" })</a>
+                    <a class="text-white " style="width: 150px; font-weight: bold;" href="LoadFormInfoDangKyThi">
+                        @Html.ActionLink("Đăng Ký Thi", "DangKyThi", "Home", new { @class = "text-white w-25" })
+
+                    </a>
+                    <a class="text-white " style="width: 150px; font-weight: bold;" href="tracuudiem.jsp">
+                        @Html.ActionLink("Tra Cứu Điểm", "TraCuuDiem", "Home", new { @class = "text-white w-25" })
+                    </a>
+                    <a class="text-white " style="width: 150px; font-weight: bold;" href="huongdansudung.jsp">
+                        @Html.ActionLink("Hướng Dẫn", "HuongDan", "Home", new { @class = "text-white w-25" })
+                    </a>
+                    <a class="text-white " style="width: 150px; font-weight: bold;" href="dangnhap.jsp">@Html.ActionLink("Đăng Nhập", "DangNhap", "Home", new { @class = "text-white w-25" })</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="container text-center mt-5">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class=" w-50 p-4 h-100 d-inline-block m-auto rounded" style="background-color:#F0F2F5">
+                    <h2 class="text-center mb-5 ">Đăng Nhập</h2>
+
+                    <div class="row mb-3 ">
+                        <div class="col col-lg-12">
+                            <input name="TK" type="text" class="shadow-none rounded border-0 w-100 p-3" placeholder="Username" value="@TempData["TK"]">
+                        </div>
+                        <div class="col col-lg-12 mt-2 ">
+                            <input name="MK" type="password" class="shadow-none rounded border-0 w-100 p-3" placeholder="Password" value="@TempData["MK"]">
+                        </div>
+                    </div>
+                    <button class="btn bg-info p-2 w-100 text-white" type="submit">Đăng nhập</button>
+                </div>
+            }
+    </div>
+        </div>
+</center>

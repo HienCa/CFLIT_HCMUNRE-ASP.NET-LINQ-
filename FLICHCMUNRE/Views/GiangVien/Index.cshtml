@@ -74,34 +74,34 @@
                             <b><p class="text-left" style="margin-left: 40px">Mã <span class="text-danger">*</span></p></b>
 
                             <input name="MaGV" placeholder="Nhập mã giảng viên" class="w-75 p-2 rounded border-light" value="" />
-                            <p class="text-danger">@ViewBag["CheckMaGV"]</p>
+                            <p class="text-danger">@TempData["CheckMaGV"]</p>
 
                         </div>
                         <div class="w-100 mt-2">
                             <b><p class="text-left" style="margin-left: 40px">Họ Tên <span class="text-danger">*</span></p></b>
                             <input name="HoTen" placeholder="Nhập họ tên giảng viên" class="w-75 p-2 rounded border-light" value="" />
-                            <p class="text-danger">@ViewBag["CheckHoTen"]</p>
+                            <p class="text-danger">@TempData["CheckHoTen"]</p>
 
                         </div>
                         <div class="w-100 mt-4">
                             <b><p class="text-left" style="margin-left: 40px">Mã Định Danh <span class="text-danger">*</span></p></b>
 
                             <input class="w-75   p-2 rounded border-light" placeholder="Nhập mã định danh" type="number" name="CCCD" value="" />
-                            <p class="text-danger">@ViewBag["CheckCCCD"]</p>
+                            <p class="text-danger">@TempData["CheckCCCD"]</p>
 
                         </div>
                         <div class="w-100 mt-4">
                             <b><p class="text-left" style="margin-left: 40px">Email <span class="text-danger">*</span></p></b>
 
                             <input class=" w-75   p-2 rounded border-light" placeholder="Nhập email" type="email" name="Email" value="" />
-                            <p class="text-danger">@ViewBag["CheckEmail"]</p>
+                            <p class="text-danger">@TempData["CheckEmail"]</p>
 
                         </div>
                         <div class="w-100 mt-4">
                             <b><p class="text-left" style="margin-left: 40px">Số Điện Thoại <span class="text-danger">*</span></p></b>
 
                             <input class=" w-75  p-2 rounded border-light" placeholder="Nhập số điện thoại" type="number" name="SDT" value="" />
-                            <p class="text-danger">@ViewBag["CheckSDT"]</p>
+                            <p class="text-danger">@TempData["CheckSDT"]</p>
 
                         </div>
                         
@@ -109,14 +109,14 @@
                             <b><p class="text-left" style="margin-left: 40px">Nơi Sinh <span class="text-danger">*</span></p></b>
 
                             <input class=" w-75   p-2 rounded border-light" placeholder="Nhập nơi sinh" type="text" name="NoiSinh" value="" />
-                            <p class="text-danger">@ViewBag["CheckNoiSinh"]</p>
+                            <p class="text-danger">@TempData["CheckNoiSinh"]</p>
 
                         </div>
                         <div class="w-100 mt-4">
                             <b><p class="text-left" style="margin-left: 40px">Trình Độ <span class="text-danger">*</span></p></b>
 
                             <input class=" w-75   p-2 rounded border-light" placeholder="Nhập trình độ học vấn" type="text" name="TrinhDo" value="" />
-                            <p class="text-danger">@ViewBag["CheckTrinhDo"]</p>
+                            <p class="text-danger">@TempData["CheckTrinhDo"]</p>
 
                         </div>
                         <div class="w-100 mt-4">
@@ -146,6 +146,16 @@
             <div class="container mt-4 w-100">
                 <div class=" ">
                     <h2 class="text-center text-white">DANH SÁCH CÁC GIẢNG VIÊN</h2>
+                    <div>
+                        @using (Html.BeginForm("ExportToExcel", "GiangVien", FormMethod.Post))
+                        {
+                            <input type="submit" value="Export To Excel" class="w-25 bg-white text-info mb-2" style="border:none; outline:none" />
+                        }
+                        @using (Html.BeginForm("ExportToCSV", "GiangVien", FormMethod.Post))
+                        {
+                            <input type="submit" value="Export To CSV" class="w-25 bg-white text-info mb-2" style="border:none; outline:none" />
+                        }
+                    </div>
                     <div style="height: 1000px;max-height: 70vh; overflow-y: scroll" class="bg-white card">
 
 
@@ -185,8 +195,8 @@
                                     @Html.DisplayName("IsForeign")
                                 </th>
                                 @*<th>
-                                        @Html.DisplayName(model => model.STATUS)
-                                    </th>*@
+                        @Html.DisplayName(model => model.STATUS)
+                    </th>*@
                                 <th></th>
                             </tr>
 
@@ -227,8 +237,8 @@
                                         @Html.DisplayFor(modelItem => item.ISFOREIGN)
                                     </td>
                                     @*<td>
-                                            @Html.DisplayFor(modelItem => item.STATUS)
-                                        </td>*@
+                            @Html.DisplayFor(modelItem => item.STATUS)
+                        </td>*@
                                     <td>
                                         @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                                         @Html.ActionLink("Details", "Details", new { id = item.ID }) |

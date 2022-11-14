@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using ClosedXML.Excel;
 using FLICHCMUNRE.Models;
 namespace FLICHCMUNRE.Controllers
 {
@@ -189,6 +192,65 @@ namespace FLICHCMUNRE.Controllers
  
 
             return View(all);
+
+
+        }
+        public ActionResult ExportToCSV()
+        {
+            HCMUNREDataContext context = new HCMUNREDataContext();
+            List<AllGiangVienResult> all = context.AllGiangVien().ToList();
+
+            var builder = new StringBuilder();
+            builder.AppendLine("MSSX,Họ Tên, CCCD, EMAIL, Số Điện Thoại, Ngày Sinh, Nơi Sinh, Trình Độ, Giới Tính");
+            foreach (var gv in all)
+            {
+                builder.AppendLine($"{gv.MAGV}, {gv.HOTEN}, {gv.CCCD}, {gv.EMAIL}, {gv.SDT}, {gv.NGAYSINH}, {gv.NOISINH}, {gv.TRINHDO}, {gv.GIOITINH}");
+            }
+
+            return File(Encoding.UTF8.GetBytes(builder.ToString()), "text / csv", "lecturers.csv");
+
+
+        }
+
+        public ActionResult ExportToExcel()
+        {
+            HCMUNREDataContext context = new HCMUNREDataContext();
+            List<AllGiangVienResult> all = context.AllGiangVien().ToList();
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Students");
+                var currentRow = 1;
+                worksheet.Cell(currentRow, 1).Value = "MaGV";
+                worksheet.Cell(currentRow, 2).Value = "Họ Tên";
+                worksheet.Cell(currentRow, 3).Value = "CCCD";
+                worksheet.Cell(currentRow, 4).Value = "EMAIL";
+                worksheet.Cell(currentRow, 5).Value = "Số Điện Thoại";
+                worksheet.Cell(currentRow, 6).Value = "Ngày Sinh";
+                worksheet.Cell(currentRow, 7).Value = "Nơi Sinh";
+                worksheet.Cell(currentRow, 8).Value = "Trình Độ";
+                worksheet.Cell(currentRow, 9).Value = "Giới Tính";
+                foreach (var gv in all)
+                {
+                    currentRow++;
+                    worksheet.Cell(currentRow, 1).Value = gv.MAGV;
+                    worksheet.Cell(currentRow, 2).Value = gv.HOTEN;
+                    worksheet.Cell(currentRow, 3).Value = gv.CCCD;
+                    worksheet.Cell(currentRow, 4).Value = gv.EMAIL;
+                    worksheet.Cell(currentRow, 5).Value = gv.SDT;
+                    worksheet.Cell(currentRow, 6).Value = gv.NGAYSINH;
+                    worksheet.Cell(currentRow, 7).Value = gv.NOISINH;
+                    worksheet.Cell(currentRow, 8).Value = gv.TRINHDO;
+                    worksheet.Cell(currentRow, 9).Value = gv.GIOITINH;
+                }
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "lecturers.xlsx");
+                }
+            }
+
 
 
         }

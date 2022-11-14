@@ -26,7 +26,7 @@ namespace FLICHCMUNRE.Controllers
             {
                 if (Request.Form.Count > 0)
                 {
-                    
+
 
                     String MaKH = Request.Form["MaKH"];
                     String MaHV = Request.Form["MaHV"];
@@ -47,7 +47,7 @@ namespace FLICHCMUNRE.Controllers
                     }
 
 
-                    if(MaHV.Length < 9 || MaHV.Length > 20)
+                    if (MaHV.Length < 9 || MaHV.Length > 20)
                     {
                         TempData["CheckMaHV"] = "Vui lòng cung cấp MSSV hợp lệ!";
                         RedirectToAction("DangkyHoc");
@@ -59,15 +59,17 @@ namespace FLICHCMUNRE.Controllers
                         context.InsertTaiKhoan(MaHV, "tnmt12345", "hocvien");
 
                         context.SubmitChanges();
+                        TempData["Success1"] = "Đăng Ký Thành Công";
+
                     }
-                    
-                    
+
+
                     RedirectToAction("DangkyHoc");
                 }
             }
             catch (SqlException e)
             {
-                TempData["e"] = "Loi Cu Phap"+e;
+                TempData["e"] = "Loi Cu Phap" + e;
                 RedirectToAction("DangkyHoc");
             }
 
@@ -123,7 +125,7 @@ namespace FLICHCMUNRE.Controllers
                         file.SaveAs(filePath);
                         AnhCK = file.FileName;
                     }
-                    if ( CCCD.Length == 0 && HoTen.Length == 0 && SDT.Length == 0 && NoiSinh.Length == 0)
+                    if (CCCD.Length == 0 && HoTen.Length == 0 && SDT.Length == 0 && NoiSinh.Length == 0)
                     {
                         TempData["CheckMaHV"] = "Vui lòng cung cấp MaHV hợp lệ!";
                         TempData["CheckCCCD"] = "Vui lòng cung cấp CCCD hợp lệ!";
@@ -160,8 +162,10 @@ namespace FLICHCMUNRE.Controllers
 
                         context.InsertTaiKhoan(CCCD, "tnmt12345", "hocvien");
                         context.SubmitChanges();
+                        TempData["Success1"] = "Đăng Ký Thành Công";
+
                     }
-                    
+
                     RedirectToAction("DangkyHoc");
                 }
                 else
@@ -171,13 +175,13 @@ namespace FLICHCMUNRE.Controllers
             }
             catch (SqlException e)
             {
-                ViewBag.Error = "Loi Cu Phap"+e;
+                ViewBag.Error = "Loi Cu Phap" + e;
                 RedirectToAction("DangkyHoc");
             }
 
 
 
-            ViewBag.Message = "Your contact page.";
+         
 
             List<AllKhoaHocGocResult> AllKH = context.AllKhoaHocGoc().ToList();
             List<AllCaResult> AllCa = context.AllCa().ToList();
@@ -190,7 +194,7 @@ namespace FLICHCMUNRE.Controllers
             ViewData["AllTL"] = AllTL;
 
 
-           return RedirectToAction("DangkyHoc");
+            return RedirectToAction("DangkyHoc");
         }
 
 
@@ -198,7 +202,87 @@ namespace FLICHCMUNRE.Controllers
         public ActionResult DangKyThi()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
-            ViewBag.Message = "Your contact page.";
+            try
+            {
+                if (Request.Form.Count > 0)
+                {
+                    String CCCD = Request.Form["CCCD"];
+                    String HoTen = Request.Form["HoTen"];
+                    String Email = Request.Form["Email"];
+                    String SDT = Request.Form["SDT"];
+                    String NgaySinh = Request.Form["NgaySinh"];
+                    String NoiSinh = Request.Form["NoiSinh"];
+                    String GioiTinh = "";
+                    String Lop = "";
+                    String MaKH = Request.Form["MaKH"];
+
+
+                    DateTime d = DateTime.Now;
+                    DateTime NgayDK = d;
+
+
+                    String AnhCK = "";
+                    HttpPostedFileBase file = Request.Files["AnhCK"];
+                    if (file != null && file.FileName != "")
+                    {
+                        String serverPath = HttpContext.Server.MapPath("~/imgs");
+                        String filePath = serverPath + "/" + file.FileName;
+                        file.SaveAs(filePath);
+                        AnhCK = file.FileName;
+                    }
+                    if (CCCD.Length == 0 && HoTen.Length == 0 && SDT.Length == 0 && NoiSinh.Length == 0)
+                    {
+                        TempData["CheckMaHV"] = "Vui lòng cung cấp MaHV hợp lệ!";
+                        TempData["CheckCCCD"] = "Vui lòng cung cấp CCCD hợp lệ!";
+                        TempData["CheckHoTen"] = "Vui lòng thông tin hợp lệ!";
+                        TempData["CheckSDT"] = "Vui lòng thông tin hợp lệ!";
+                        TempData["CheckNoiSinh"] = "Vui lòng thông tin hợp lệ!";
+
+                    }
+                    if (CCCD.Length < 9 || CCCD.Length > 12)
+                    {
+                        TempData["CheckCCCD"] = "Vui lòng cung cấp CCCD hợp lệ!";
+
+                    }
+                    else if (HoTen.Length < 4 || HoTen.Length > 200)
+                    {
+                        TempData["CheckHoTen"] = "Vui lòng thông tin hợp lệ!";
+
+                    }
+                    else if (SDT.Length < 9 || HoTen.Length > 50)
+                    {
+                        TempData["CheckSDT"] = "Vui lòng thông tin hợp lệ!";
+
+                    }
+                    else if (NoiSinh.Length < 4 || NoiSinh.Length > 200)
+                    {
+                        TempData["CheckNoiSinh"] = "Vui lòng thông tin hợp lệ!";
+
+                    }
+                    else
+                    {
+                        context.InsertHocVien(CCCD, HoTen, Email, CCCD, SDT, GioiTinh, NoiSinh, Convert.ToDateTime(NgaySinh), Lop);
+
+                        context.InsertChiTietDangKyThi(MaKH, CCCD, AnhCK, NgayDK);
+
+                        context.InsertTaiKhoan(CCCD, "tnmt12345", "hocvien");
+                        context.SubmitChanges();
+                        TempData["Success1"] = "Đăng Ký Thành Công";
+
+                    }
+
+                    RedirectToAction("DangKyThi");
+                }
+                else
+                {
+                    RedirectToAction("DangKyThi");
+                }
+            }
+            catch (SqlException e)
+            {
+                ViewBag.Error = "Loi Cu Phap" + e;
+                RedirectToAction("DangKyThi");
+            }
 
             List<AllKhoaHocGocResult> AllKH = context.AllKhoaHocGoc().ToList();
 
@@ -251,11 +335,12 @@ namespace FLICHCMUNRE.Controllers
                     else if (otk.VAITRO.Equals("giangvien"))
                         return RedirectToAction("QLTKGV", "TaiKhoan");
                 }
-                else{
+                else
+                {
                     TempData["TK"] = TK;
                     TempData["MK"] = MK;
                 }
-                
+
 
             }
             return View();
@@ -267,8 +352,8 @@ namespace FLICHCMUNRE.Controllers
             ViewBag.Message = "Your contact page.";
             Console.Write(Request.Form.Count.ToString());
             List<AllKhoaHocGocResult> kh = context.AllKhoaHocGoc().ToList();
-            
-            
+
+
             ViewData["kh"] = kh;
             String Search = Request.Form["Search"];
             List<SearchKhoaHocResult> search = context.SearchKhoaHoc(Search).ToList();

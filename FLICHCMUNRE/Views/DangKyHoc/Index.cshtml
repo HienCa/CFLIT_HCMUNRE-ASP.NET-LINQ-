@@ -31,6 +31,10 @@
                         @Html.ActionLink("PHIẾU ĐĂNG KÝ HỌC", "Index", "DangKyHoc", "DangKyHoc", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
 
                     </div>
+                    <div class="mt-5">
+                        @Html.ActionLink("PHIẾU ĐĂNG KÝ THI", "Index", "DangKyThi", "DangKyThi", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
+
+                    </div>
 
 
                     <div class="mt-5">
@@ -46,7 +50,7 @@
 
 
             <div class="pl-3 pr-3 mt-4 w-100">
-                <h2 class="text-center text-white">QUẢN LÝ TRẠNG THÁI ĐĂNG KÝ KHÓA HỌC</h2>
+                <h2 class="text-center text-white">DANH SÁCH ĐĂNG KÝ KHÓA HỌC</h2>
                 <div class=" bg-white card text-center" ">
                     <div class="border-light"></div>
                     <center>
@@ -58,9 +62,7 @@
 
 
                                         <select name="Search" style="outline: none" class="w-75 p-2 rounded ">
-                                            <option>
-                                                -- Tìm Khóa Học --
-                                            </option>
+                                            
                                             @foreach (var item in TempData["AllKH"] as List<AllKhoaHocGocResult>)
                                             {
 

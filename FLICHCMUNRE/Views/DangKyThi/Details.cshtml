@@ -1,0 +1,185 @@
+﻿@model FLICHCMUNRE.Models.OneChiTietDangKyThiFullResult
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 class="container text-white d-flex">THÔNG TIN CHI TIẾT PHIẾU ĐĂNG KÝ THI</h1>
+<div class="container text-white d-flex justify-content-between mt-5">
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Mã Khóa Học")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Mã Học Viên")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAHV)
+        </dd>
+        <dt>
+            @Html.DisplayName("Ảnh Chuyển Khoản Thành Công")
+        </dt>
+        <dt>
+            <img style="width:200px;height:200px" src="~/imgs/@Model.ANHCK" />
+        </dt>
+
+        <dt>
+            @Html.DisplayName("Ngày Đăng Ký")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDK)
+        </dd>
+
+
+
+
+
+    </dl>
+    <dl class="dl-horizontal">
+
+
+
+
+        <dt>
+            @Html.DisplayName("Gía")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Thời Gian Bắt Đầu Khóa Học")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TGBD)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Thời Gian Kết Thúc")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TGKT)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Mã Loại")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MALOAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Mã Hình Thức")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAHT)
+        </dd>
+
+
+    </dl>
+    <dl class="dl-horizontal">
+
+
+
+
+        <dt>
+            @Html.DisplayName("Họ và Tên")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOTEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Email")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCCD)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số Điện Thoại")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+
+
+
+
+
+    </dl>
+    <dl class="dl-horizontal">
+
+
+
+
+
+
+        <dt>
+            @Html.DisplayName("Giới Tính")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOITINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Nơi Sinh")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOISINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ngày Sinh")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYSINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Lớp")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOP)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p class="text-white display-4 text-center">
+
+    @Html.ActionLink("Back to List", "Index", new { @class = "text-white" }, new { @class = "text-white" })
+</p>

@@ -30,9 +30,7 @@
                         @Html.ActionLink("Đăng Ký Thi", "DangKyThi", "Home", new { @class = "text-white w-25" })
 
                     </a>
-                    <a class="text-white " style="width: 150px; font-weight: bold;" href="tracuudiem.jsp">
-                        @Html.ActionLink("Tra Cứu Điểm", "TraCuuDiem", "Home", new { @class = "text-white w-25" })
-                    </a>
+                   
                     <a class="text-white " style="width: 150px; font-weight: bold;" href="huongdansudung.jsp">
                         @Html.ActionLink("Hướng Dẫn", "HuongDan", "Home", new { @class = "text-white w-25" })
                     </a>
@@ -51,7 +49,7 @@
                 
                 @using (Html.BeginForm("SearchKH", "Home", FormMethod.Post))
                 {
-                    <select name="Search" class="w-25 p-2" style="outline: none; border-radius: 10px; border: 1px solid #fff;">
+                    <select name="Search" class="w-50 p-3" style="outline: none; border-radius: 10px; border: 1px solid #fff;">
                         @foreach (var item in Model)
                         {
                             <option value="@item.tenkh">
@@ -59,7 +57,7 @@
                             </option>
                         }
                     </select>
-                    <input type="submit" class="p-2 text-white ml-2" value="Tìm" style="background: linear-gradient(90deg, #39cfca 0%, #3279bb 100%);border: 1px solid #fff; border-radius: 5px" />
+                    <input type="submit" class="p-3 text-white ml-2" value="Tìm" style="background: linear-gradient(90deg, #39cfca 0%, #3279bb 100%);border: 1px solid #fff; border-radius: 5px" />
                 }
             </div>
         </div>
@@ -67,7 +65,7 @@
 
             @foreach (var item in Model)
             {
-                <div class="" style="height: 385px; width: 300px; max-width: 270px">
+                <div class="m-2" style="height: 385px; width: 300px; max-width: 270px">
                     @if (@item.maloai == "THVP")
                     {
                         <img src="../imgs/tinhocvanphon.png" style="height:250px; width: 250px; border-radius: 25px" />
@@ -76,13 +74,17 @@
                     {
                         <img src="../imgs/h1.png" style="height:250px; width: 250px" />
                     }
-                    <p style="max-width: 270px;" class="p-2">
-                        Khóa Học: @item.tenkh<br>
-                        Giá: @if (@item.gia > 0)
-                        {@item.gia}
-                        @if (@item.gia == 0) { }FREE<br>
-                        TGBD: @item.TGBD <br> TGBD: @item.TGKT
-                    </p>
+                <p style="max-width: 270px;" class="p-2">
+                    Khóa Học: @item.tenkh<br>
+                    Giá:
+                    Khóa Học: @item.tenkh<br>
+                    Giá: @if (@item.gia > 0)
+                    {@item.gia}
+                    @if (@item.gia == 0)
+                    {<span>FREE</span>}<br>
+                    TGBD: @item.TGBD <br> TGBD: @item.TGKT
+                    
+                </p>
 
                 </div>
 

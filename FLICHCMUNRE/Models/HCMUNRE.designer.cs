@@ -645,6 +645,34 @@ namespace FLICHCMUNRE.Models
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), search);
 			return ((ISingleResult<SearchChiTietDangKyHocFULLResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertChiTietDangKyThi")]
+		public int InsertChiTietDangKyThi([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string makh, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string mahv, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string anhck, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> ngaydk)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), makh, mahv, anhck, ngaydk);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AllChiTietDangKyThi")]
+		public ISingleResult<AllChiTietDangKyThiResult> AllChiTietDangKyThi()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<AllChiTietDangKyThiResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SearchChiTietDangKyThi")]
+		public ISingleResult<SearchChiTietDangKyThiResult> SearchChiTietDangKyThi([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(50)")] string search)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), search);
+			return ((ISingleResult<SearchChiTietDangKyThiResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OneChiTietDangKyThiFull")]
+		public ISingleResult<OneChiTietDangKyThiFullResult> OneChiTietDangKyThiFull([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+			return ((ISingleResult<OneChiTietDangKyThiFullResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CA")]
@@ -9243,6 +9271,1074 @@ namespace FLICHCMUNRE.Models
 		private System.Nullable<int> _STATUS1;
 		
 		public SearchChiTietDangKyHocFULLResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAKH", DbType="VarChar(50)")]
+		public string MAKH
+		{
+			get
+			{
+				return this._MAKH;
+			}
+			set
+			{
+				if ((this._MAKH != value))
+				{
+					this._MAKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAHV", DbType="VarChar(50)")]
+		public string MAHV
+		{
+			get
+			{
+				return this._MAHV;
+			}
+			set
+			{
+				if ((this._MAHV != value))
+				{
+					this._MAHV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ANHCK", DbType="VarChar(100)")]
+		public string ANHCK
+		{
+			get
+			{
+				return this._ANHCK;
+			}
+			set
+			{
+				if ((this._ANHCK != value))
+				{
+					this._ANHCK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYDK", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYDK
+		{
+			get
+			{
+				return this._NGAYDK;
+			}
+			set
+			{
+				if ((this._NGAYDK != value))
+				{
+					this._NGAYDK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="Int")]
+		public System.Nullable<int> STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this._STATUS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID1", DbType="Int NOT NULL")]
+		public int ID1
+		{
+			get
+			{
+				return this._ID1;
+			}
+			set
+			{
+				if ((this._ID1 != value))
+				{
+					this._ID1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAKH1", DbType="VarChar(50)")]
+		public string MAKH1
+		{
+			get
+			{
+				return this._MAKH1;
+			}
+			set
+			{
+				if ((this._MAKH1 != value))
+				{
+					this._MAKH1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENKH", DbType="NVarChar(100)")]
+		public string TENKH
+		{
+			get
+			{
+				return this._TENKH;
+			}
+			set
+			{
+				if ((this._TENKH != value))
+				{
+					this._TENKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIA", DbType="Float")]
+		public System.Nullable<double> GIA
+		{
+			get
+			{
+				return this._GIA;
+			}
+			set
+			{
+				if ((this._GIA != value))
+				{
+					this._GIA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGBD", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TGBD
+		{
+			get
+			{
+				return this._TGBD;
+			}
+			set
+			{
+				if ((this._TGBD != value))
+				{
+					this._TGBD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGKT", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TGKT
+		{
+			get
+			{
+				return this._TGKT;
+			}
+			set
+			{
+				if ((this._TGKT != value))
+				{
+					this._TGKT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MALOAI", DbType="VarChar(50)")]
+		public string MALOAI
+		{
+			get
+			{
+				return this._MALOAI;
+			}
+			set
+			{
+				if ((this._MALOAI != value))
+				{
+					this._MALOAI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAHT", DbType="VarChar(50)")]
+		public string MAHT
+		{
+			get
+			{
+				return this._MAHT;
+			}
+			set
+			{
+				if ((this._MAHT != value))
+				{
+					this._MAHT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID2", DbType="Int NOT NULL")]
+		public int ID2
+		{
+			get
+			{
+				return this._ID2;
+			}
+			set
+			{
+				if ((this._ID2 != value))
+				{
+					this._ID2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAHV1", DbType="VarChar(50)")]
+		public string MAHV1
+		{
+			get
+			{
+				return this._MAHV1;
+			}
+			set
+			{
+				if ((this._MAHV1 != value))
+				{
+					this._MAHV1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOTEN", DbType="NVarChar(100)")]
+		public string HOTEN
+		{
+			get
+			{
+				return this._HOTEN;
+			}
+			set
+			{
+				if ((this._HOTEN != value))
+				{
+					this._HOTEN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="VarChar(100)")]
+		public string EMAIL
+		{
+			get
+			{
+				return this._EMAIL;
+			}
+			set
+			{
+				if ((this._EMAIL != value))
+				{
+					this._EMAIL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CCCD", DbType="VarChar(50)")]
+		public string CCCD
+		{
+			get
+			{
+				return this._CCCD;
+			}
+			set
+			{
+				if ((this._CCCD != value))
+				{
+					this._CCCD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(50)")]
+		public string SDT
+		{
+			get
+			{
+				return this._SDT;
+			}
+			set
+			{
+				if ((this._SDT != value))
+				{
+					this._SDT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pass", DbType="VarChar(50)")]
+		public string Pass
+		{
+			get
+			{
+				return this._Pass;
+			}
+			set
+			{
+				if ((this._Pass != value))
+				{
+					this._Pass = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIOITINH", DbType="Int")]
+		public System.Nullable<int> GIOITINH
+		{
+			get
+			{
+				return this._GIOITINH;
+			}
+			set
+			{
+				if ((this._GIOITINH != value))
+				{
+					this._GIOITINH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOISINH", DbType="NVarChar(100)")]
+		public string NOISINH
+		{
+			get
+			{
+				return this._NOISINH;
+			}
+			set
+			{
+				if ((this._NOISINH != value))
+				{
+					this._NOISINH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYSINH", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYSINH
+		{
+			get
+			{
+				return this._NGAYSINH;
+			}
+			set
+			{
+				if ((this._NGAYSINH != value))
+				{
+					this._NGAYSINH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOP", DbType="VarChar(50)")]
+		public string LOP
+		{
+			get
+			{
+				return this._LOP;
+			}
+			set
+			{
+				if ((this._LOP != value))
+				{
+					this._LOP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS1", DbType="Int")]
+		public System.Nullable<int> STATUS1
+		{
+			get
+			{
+				return this._STATUS1;
+			}
+			set
+			{
+				if ((this._STATUS1 != value))
+				{
+					this._STATUS1 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AllChiTietDangKyThiResult
+	{
+		
+		private int _ID;
+		
+		private string _MAKH;
+		
+		private string _MAHV;
+		
+		private string _ANHCK;
+		
+		private System.Nullable<System.DateTime> _NGAYDK;
+		
+		private System.Nullable<int> _STATUS;
+		
+		private int _ID1;
+		
+		private string _MAKH1;
+		
+		private string _TENKH;
+		
+		private System.Nullable<double> _GIA;
+		
+		private System.Nullable<System.DateTime> _TGBD;
+		
+		private System.Nullable<System.DateTime> _TGKT;
+		
+		private string _MALOAI;
+		
+		private string _MAHT;
+		
+		private int _ID2;
+		
+		private string _MAHV1;
+		
+		private string _HOTEN;
+		
+		private string _EMAIL;
+		
+		private string _CCCD;
+		
+		private string _SDT;
+		
+		private string _Pass;
+		
+		private System.Nullable<int> _GIOITINH;
+		
+		private string _NOISINH;
+		
+		private System.Nullable<System.DateTime> _NGAYSINH;
+		
+		private string _LOP;
+		
+		private System.Nullable<int> _STATUS1;
+		
+		public AllChiTietDangKyThiResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAKH", DbType="VarChar(50)")]
+		public string MAKH
+		{
+			get
+			{
+				return this._MAKH;
+			}
+			set
+			{
+				if ((this._MAKH != value))
+				{
+					this._MAKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAHV", DbType="VarChar(50)")]
+		public string MAHV
+		{
+			get
+			{
+				return this._MAHV;
+			}
+			set
+			{
+				if ((this._MAHV != value))
+				{
+					this._MAHV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ANHCK", DbType="VarChar(100)")]
+		public string ANHCK
+		{
+			get
+			{
+				return this._ANHCK;
+			}
+			set
+			{
+				if ((this._ANHCK != value))
+				{
+					this._ANHCK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYDK", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYDK
+		{
+			get
+			{
+				return this._NGAYDK;
+			}
+			set
+			{
+				if ((this._NGAYDK != value))
+				{
+					this._NGAYDK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="Int")]
+		public System.Nullable<int> STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this._STATUS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID1", DbType="Int NOT NULL")]
+		public int ID1
+		{
+			get
+			{
+				return this._ID1;
+			}
+			set
+			{
+				if ((this._ID1 != value))
+				{
+					this._ID1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAKH1", DbType="VarChar(50)")]
+		public string MAKH1
+		{
+			get
+			{
+				return this._MAKH1;
+			}
+			set
+			{
+				if ((this._MAKH1 != value))
+				{
+					this._MAKH1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENKH", DbType="NVarChar(100)")]
+		public string TENKH
+		{
+			get
+			{
+				return this._TENKH;
+			}
+			set
+			{
+				if ((this._TENKH != value))
+				{
+					this._TENKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIA", DbType="Float")]
+		public System.Nullable<double> GIA
+		{
+			get
+			{
+				return this._GIA;
+			}
+			set
+			{
+				if ((this._GIA != value))
+				{
+					this._GIA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGBD", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TGBD
+		{
+			get
+			{
+				return this._TGBD;
+			}
+			set
+			{
+				if ((this._TGBD != value))
+				{
+					this._TGBD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGKT", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TGKT
+		{
+			get
+			{
+				return this._TGKT;
+			}
+			set
+			{
+				if ((this._TGKT != value))
+				{
+					this._TGKT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MALOAI", DbType="VarChar(50)")]
+		public string MALOAI
+		{
+			get
+			{
+				return this._MALOAI;
+			}
+			set
+			{
+				if ((this._MALOAI != value))
+				{
+					this._MALOAI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAHT", DbType="VarChar(50)")]
+		public string MAHT
+		{
+			get
+			{
+				return this._MAHT;
+			}
+			set
+			{
+				if ((this._MAHT != value))
+				{
+					this._MAHT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID2", DbType="Int NOT NULL")]
+		public int ID2
+		{
+			get
+			{
+				return this._ID2;
+			}
+			set
+			{
+				if ((this._ID2 != value))
+				{
+					this._ID2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAHV1", DbType="VarChar(50)")]
+		public string MAHV1
+		{
+			get
+			{
+				return this._MAHV1;
+			}
+			set
+			{
+				if ((this._MAHV1 != value))
+				{
+					this._MAHV1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOTEN", DbType="NVarChar(100)")]
+		public string HOTEN
+		{
+			get
+			{
+				return this._HOTEN;
+			}
+			set
+			{
+				if ((this._HOTEN != value))
+				{
+					this._HOTEN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="VarChar(100)")]
+		public string EMAIL
+		{
+			get
+			{
+				return this._EMAIL;
+			}
+			set
+			{
+				if ((this._EMAIL != value))
+				{
+					this._EMAIL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CCCD", DbType="VarChar(50)")]
+		public string CCCD
+		{
+			get
+			{
+				return this._CCCD;
+			}
+			set
+			{
+				if ((this._CCCD != value))
+				{
+					this._CCCD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(50)")]
+		public string SDT
+		{
+			get
+			{
+				return this._SDT;
+			}
+			set
+			{
+				if ((this._SDT != value))
+				{
+					this._SDT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pass", DbType="VarChar(50)")]
+		public string Pass
+		{
+			get
+			{
+				return this._Pass;
+			}
+			set
+			{
+				if ((this._Pass != value))
+				{
+					this._Pass = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIOITINH", DbType="Int")]
+		public System.Nullable<int> GIOITINH
+		{
+			get
+			{
+				return this._GIOITINH;
+			}
+			set
+			{
+				if ((this._GIOITINH != value))
+				{
+					this._GIOITINH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOISINH", DbType="NVarChar(100)")]
+		public string NOISINH
+		{
+			get
+			{
+				return this._NOISINH;
+			}
+			set
+			{
+				if ((this._NOISINH != value))
+				{
+					this._NOISINH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYSINH", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYSINH
+		{
+			get
+			{
+				return this._NGAYSINH;
+			}
+			set
+			{
+				if ((this._NGAYSINH != value))
+				{
+					this._NGAYSINH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOP", DbType="VarChar(50)")]
+		public string LOP
+		{
+			get
+			{
+				return this._LOP;
+			}
+			set
+			{
+				if ((this._LOP != value))
+				{
+					this._LOP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS1", DbType="Int")]
+		public System.Nullable<int> STATUS1
+		{
+			get
+			{
+				return this._STATUS1;
+			}
+			set
+			{
+				if ((this._STATUS1 != value))
+				{
+					this._STATUS1 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SearchChiTietDangKyThiResult
+	{
+		
+		private int _ID;
+		
+		private string _MAKH;
+		
+		private string _MAHV;
+		
+		private string _ANHCK;
+		
+		private System.Nullable<System.DateTime> _NGAYDK;
+		
+		private System.Nullable<int> _STATUS;
+		
+		public SearchChiTietDangKyThiResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAKH", DbType="VarChar(50)")]
+		public string MAKH
+		{
+			get
+			{
+				return this._MAKH;
+			}
+			set
+			{
+				if ((this._MAKH != value))
+				{
+					this._MAKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAHV", DbType="VarChar(50)")]
+		public string MAHV
+		{
+			get
+			{
+				return this._MAHV;
+			}
+			set
+			{
+				if ((this._MAHV != value))
+				{
+					this._MAHV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ANHCK", DbType="VarChar(100)")]
+		public string ANHCK
+		{
+			get
+			{
+				return this._ANHCK;
+			}
+			set
+			{
+				if ((this._ANHCK != value))
+				{
+					this._ANHCK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYDK", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYDK
+		{
+			get
+			{
+				return this._NGAYDK;
+			}
+			set
+			{
+				if ((this._NGAYDK != value))
+				{
+					this._NGAYDK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="Int")]
+		public System.Nullable<int> STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this._STATUS = value;
+				}
+			}
+		}
+	}
+	
+	public partial class OneChiTietDangKyThiFullResult
+	{
+		
+		private int _ID;
+		
+		private string _MAKH;
+		
+		private string _MAHV;
+		
+		private string _ANHCK;
+		
+		private System.Nullable<System.DateTime> _NGAYDK;
+		
+		private System.Nullable<int> _STATUS;
+		
+		private int _ID1;
+		
+		private string _MAKH1;
+		
+		private string _TENKH;
+		
+		private System.Nullable<double> _GIA;
+		
+		private System.Nullable<System.DateTime> _TGBD;
+		
+		private System.Nullable<System.DateTime> _TGKT;
+		
+		private string _MALOAI;
+		
+		private string _MAHT;
+		
+		private int _ID2;
+		
+		private string _MAHV1;
+		
+		private string _HOTEN;
+		
+		private string _EMAIL;
+		
+		private string _CCCD;
+		
+		private string _SDT;
+		
+		private string _Pass;
+		
+		private System.Nullable<int> _GIOITINH;
+		
+		private string _NOISINH;
+		
+		private System.Nullable<System.DateTime> _NGAYSINH;
+		
+		private string _LOP;
+		
+		private System.Nullable<int> _STATUS1;
+		
+		public OneChiTietDangKyThiFullResult()
 		{
 		}
 		

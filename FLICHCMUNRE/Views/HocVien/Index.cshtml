@@ -141,6 +141,17 @@
             <div class="container mt-4 w-100 ">
                 <div class=" ">
                     <h2 class="text-center text-white">DANH SÁCH CÁC HỌC VIÊN</h2>
+                    <div >
+                        @using (Html.BeginForm("ExportToExcel", "HocVien", FormMethod.Post))
+                        {
+                            <input type="submit" value="Export To Excel" class="w-25 bg-white text-info mb-2" style="border:none; outline:none" />
+                        }
+                        @using (Html.BeginForm("ExportToCSV", "HocVien", FormMethod.Post))
+                        {
+                            <input type="submit" value="Export To CSV" class="w-25 bg-white text-info mb-2" style="border:none; outline:none" />
+                        }
+                    </div>
+                    
                     <div style="height: 1000px;max-height: 70vh; overflow-y: scroll" class="bg-white card ">
 
                         <table class="table">
@@ -176,8 +187,8 @@
                                     @Html.DisplayName("Lớp")
                                 </th>
                                 @*<th>
-                                        @Html.DisplayName("Status")
-                                    </th>*@
+                        @Html.DisplayName("Status")
+                    </th>*@
                                 <th></th>
                             </tr>
 
@@ -215,8 +226,8 @@
                                         @Html.DisplayFor(modelItem => item.LOP)
                                     </td>
                                     @*<td>
-                                            @Html.DisplayFor(modelItem => item.STATUS)
-                                        </td>*@
+                            @Html.DisplayFor(modelItem => item.STATUS)
+                        </td>*@
                                     <td>
                                         @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                                         @Html.ActionLink("Details", "Details", new { id = item.ID }) |

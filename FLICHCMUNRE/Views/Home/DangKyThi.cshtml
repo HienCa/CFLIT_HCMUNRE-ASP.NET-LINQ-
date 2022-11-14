@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="~/styles/index.css">
 </head>
 
 <body>
@@ -29,9 +29,7 @@
                         @Html.ActionLink("Đăng Ký Thi", "DangKyThi", "Home", new { @class = "text-white w-25" })
 
                     </a>
-                    <a class="text-white " style="width: 150px; font-weight: bold;" href="tracuudiem.jsp">
-                        @Html.ActionLink("Tra Cứu Điểm", "TraCuuDiem", "Home", new { @class = "text-white w-25" })
-                    </a>
+                    
                     <a class="text-white " style="width: 150px; font-weight: bold;" href="huongdansudung.jsp">
                         @Html.ActionLink("Hướng Dẫn", "HuongDan", "Home", new { @class = "text-white w-25" })
                     </a>
@@ -63,107 +61,109 @@
             <div class=" p-5 card mt-2 position-relative">
 
                 <h3 class="text-center">ĐĂNG KÝ THI DÀNH CHO THÍ SINH TỰ DO</h3>
+                <h5 class="text-success">@TempData["Success1"]</h5>
 
                 @using (Html.BeginForm("DangKyThi", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
-    @Html.AntiForgeryToken()
-                    <div class="p-2">
-                        <p class="text-danger">* là các tiêu chí bắt buộc không được bỏ trống!</p>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <span>Mã định danh</span>
-                                @*<a href="#" id="" class="tutorial">
-                                        <span class="text-primary">Hướng dẫn cách nhập</span>
-                                        <div id="tutorial" class="tutorialPopup rounded">
-                                            <div class="contentTutorial w-100 m-auto bg-secondary p-5">
-                                                <div class="contentTutorial__head d-flex justify-content-between">
-                                                    <h4 class="text-white m-auto ">Hướng dẫn nhập Mã</h4>
+            @Html.AntiForgeryToken()
+                            <div class="p-2">
+                                <p class="text-danger">* là các tiêu chí bắt buộc không được bỏ trống!</p>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <span>Mã định danh</span>
+                                        <a href="#" id="" class="tutorial">
+                                            <span class="text-primary">Hướng dẫn cách nhập</span>
+                                            <div id="tutorial" class="tutorialPopup rounded">
+                                                <div class="contentTutorial w-100 m-auto bg-secondary p-5">
+                                                    <div class="contentTutorial__head d-flex justify-content-between">
+                                                        <h4 class="text-white m-auto ">Hướng dẫn nhập Mã</h4>
 
-                                                </div>
-                                                <div class="contentTutorial__body">
-                                                    <div class="contentTutorial__body__item bg-light p-2 m-3 rounded">
-                                                        <div class="text-primary">Nhập MSSV đối với:</div>
-                                                        <p class="">Sinh viên Đại học tại HCMUNRE</p>
                                                     </div>
-                                                    <div class="contentTutorial__body__item bg-light p-2 m-3 rounded">
-                                                        <div class="text-primary">Nhập Mã học viên đối với:</div>
-                                                        <p class="">Học viên Cao học tại HCMUNRE</p>
-                                                    </div>
-                                                    <div class="contentTutorial__body__item bg-light p-2 m-3 rounded">
-                                                        <div class="text-primary">Nhập CMND, CCCD đối với:</div>
-                                                        <p class="">Người đăng ký hiên không học tại HCMUNRE</p>
+                                                    <div class="contentTutorial__body">
+                                                        <div class="contentTutorial__body__item bg-light p-2 m-3 rounded">
+                                                            <div class="text-primary">Nhập MSSV đối với:</div>
+                                                            <p class="">Sinh viên Đại học tại HCMUNRE</p>
+                                                        </div>
+                                                        <div class="contentTutorial__body__item bg-light p-2 m-3 rounded">
+                                                            <div class="text-primary">Nhập Mã học viên đối với:</div>
+                                                            <p class="">Học viên Cao học tại HCMUNRE</p>
+                                                        </div>
+                                                        <div class="contentTutorial__body__item bg-light p-2 m-3 rounded">
+                                                            <div class="text-primary">Nhập CMND, CCCD đối với:</div>
+                                                            <p class="">Người đăng ký hiên không học tại HCMUNRE</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>*@
+                                        </a>
 
-                                <span class="text-danger"> *</span>
-                                <input type="number" value="" name="CCCD" class="w-100 p-2 rounded border-light"
-                                       placeholder="Nhập theo hướng dẫn cách nhập">
+                                        <span class="text-danger"> *</span>
+                                        <input type="number" value="" name="CCCD" class="w-100 p-2 rounded border-light"
+                                               placeholder="Nhập theo hướng dẫn cách nhập">
+                                        <p class="text-danger">@TempData["CheckCCCD"]</p>
 
-                            </div>
-                            <div class="col-lg-4">
-                                <span>Họ tên</span><span class="text-danger"> *</span>
-                                <input type="text" value="" name="HoTen" class="w-100 p-2 rounded border-light"
-                                       placeholder="Nhập đầy đủ họ và tên">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <span>Họ tên</span><span class="text-danger"> *</span>
+                                        <input type="text" value="" name="HoTen" class="w-100 p-2 rounded border-light"
+                                               placeholder="Nhập đầy đủ họ và tên">
+                                        <p class="text-danger">@TempData["CheckHoTen"]</p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <span>Ngày sinh</span> <span class="text-danger"> *</span>
 
-                            </div>
-                            <div class="col-lg-4">
-                                <span>Ngày sinh</span> <span class="text-danger"> *</span>
+                                        <input type="date" value="" max="2008-01-01" name="NgaySinh" required class="w-100 p-2 rounded border-light">
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-lg-4">
+                                        <span>Nơi sinh</span> <span class="text-danger"> *</span>
+                                        <input type="text" value="" name="NoiSinh" class="w-100 p-2 rounded border-light"
+                                               placeholder="VD: Đồng Tháp">
+                                        <p class="text-danger">@TempData["CheckNoiSinh"]</p>
 
-                                <input type="date" value="" max="2008-01-01" name="NgaySinh" required class="w-100 p-2 rounded border-light">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <span>Email</span><span class="text-danger"> *</span>
+                                        <input type="email" value="" name="Email" class="w-100 p-2 rounded border-light"
+                                               placeholder="Email thường dùng nhất">
 
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-lg-4">
-                                <span>Nơi sinh</span> <span class="text-danger"> *</span>
-                                <input type="text" value="" name="NoiSinh" class="w-100 p-2 rounded border-light"
-                                       placeholder="VD: Đồng Tháp">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <span>Điện thoại</span> <span class="text-danger"> *</span>
+                                        <input type="number" value="" name="SDT" class="w-100 p-2 rounded border-light"
+                                               placeholder="Số điện thoại thường dùng nhất">
+                                        <p class="text-danger">@TempData["CheckSDT"]</p>
 
-                            </div>
-                            <div class="col-lg-4">
-                                <span>Email</span><span class="text-danger"> *</span>
-                                <input type="email" value="" name="Email" class="w-100 p-2 rounded border-light"
-                                       placeholder="Email thường dùng nhất">
+                                    </div>
+                                </div>
+                                <div class="row mt-3 align-item-center">
+                                    <div class="col-lg-6">
+                                        <span>Khóa học</span><span class="text-danger"> *</span>
+                                        <select name="MaKH" value="" id="" style="outline: none" class="w-100 p-2 rounded  bg-light">
 
-                            </div>
-                            <div class="col-lg-4">
-                                <span>Điện thoại</span> <span class="text-danger"> *</span>
-                                <input type="number" value="" name="SDT" class="w-100 p-2 rounded border-light"
-                                       placeholder="Số điện thoại thường dùng nhất">
+                                            @foreach (var l in @ViewData["AllKH"] as List<AllKhoaHocGocResult>)
+                                            {
+                            <option value="@l.MAKH">@l.TENKH</option>}
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6">
 
-                            </div>
-                        </div>
-                        <div class="row mt-3 align-item-center">
-                            <div class="col-lg-6">
-                                <span>Khóa học</span><span class="text-danger"> *</span>
-                                <select name="MaKH" value="" id="" style="outline: none" class="w-100 p-2 rounded  bg-light">
+                                        <span>Ảnh chụp hóa đơn, chuyển khoản</span> <span class="text-danger">
+                                            (&lt;
+                                            3MB)*
+                                        </span>
 
-                                    @foreach (var l in @ViewData["AllKH"] as List<AllKhoaHocGocResult>)
-                                    {
-                    <option value="@l.MAKH">@l.TENKH</option>
-}
-                                </select>
-                            </div>
-                            <div class="col-lg-6">
-
-                                <span>Ảnh chụp hóa đơn, chuyển khoản</span> <span class="text-danger">
-                                    (&lt;
-                                    3MB)*
-                                </span>
-
-                                <input type="file" title="Chọn ảnh hóa đơn thanh toán khóa học" value="${AnhCK}" required="required" name="AnhCK" class="w-100  rounded border-light">
-                                <span class="text-success mt-3">Nội dung chuyển khoản: </span><p class="text-success  mb-3">
-                                    Nội dung: MSSV/CCCD/CMND, Họ và Tên, Khóa Học, Thời Gian<br><br>
-                                    VD: Nguyễn Văn Hiền, MSSV: 850080018, học TOEIC 850-990, từ 05/10/2022 - 05/12/2022<br>
-                                    <span class="text-danger">Cú Pháp: 850080018 NGUYEN VAN HIEN, TOEIC 850-990, 05/10 - 12/12/2022</span><br><br> Lệ phí thi là 950k / lần thi
-                                </p>
-                            </div>
-                        </div>
-                        <button class="btn bg-info text-white p-2 w-100 mt-3">Đăng ký</button>
-                    </div>}
+                                        <input type="file" title="Chọn ảnh hóa đơn thanh toán khóa học" value="${AnhCK}" required="required" name="AnhCK" class="w-100  rounded border-light">
+                                        <span class="text-success mt-3">Nội dung chuyển khoản: </span><p class="text-success  mb-3">
+                                            Nội dung: MSSV/CCCD/CMND, Họ và Tên, Khóa Học, Thời Gian<br><br>
+                                            VD: Nguyễn Văn Hiền, MSSV: 850080018, học TOEIC 850-990, từ 05/10/2022 - 05/12/2022<br>
+                                            <span class="text-danger">Cú Pháp: 850080018 NGUYEN VAN HIEN, TOEIC 850-990, 05/10 - 12/12/2022</span><br><br> Lệ phí thi là 950k / lần thi
+                                        </p>
+                                    </div>
+                                </div>
+                                <button class="btn bg-info text-white p-2 w-100 mt-3">Đăng ký</button>
+                            </div>}
             </div>
 
         </div>

@@ -42,19 +42,18 @@ namespace FLICHCMUNRE.Controllers
                     String MaKH = Request.Form["MaKH"];
                     String TenKH = Request.Form["TenKH"];
                     String gia = Request.Form["Gia"];
-                    String tgbd = Request.Form["TGBD"];
-                    String tgkt = Request.Form["TGKT"];
+                    String tgbd = Request.Form["NgayBD"];
+                    String tgkt = Request.Form["NgayKT"];
                     String maloai = Request.Form["MaLoai"];
                     String MaHT = Request.Form["MaHT"];
 
 
-                    var TGBD = Convert.ToDateTime(tgbd);
-                    var TGKT = Convert.ToDateTime(tgkt);
+                 
                     float Gia = float.Parse(gia);
                     
 
 
-                    context.InsertKhoaHoc(MaKH, TenKH, Gia, TGBD, TGKT, maloai, MaHT);
+                    context.InsertKhoaHoc(MaKH, TenKH, Gia, Convert.ToDateTime(tgbd), Convert.ToDateTime(tgkt), maloai, MaHT);
                     return RedirectToAction("Index");
 
                 }
@@ -84,12 +83,11 @@ namespace FLICHCMUNRE.Controllers
                 String MaHT = Request.Form["MaHT"];
 
 
-                DateTime TGBD = DateTime.Parse(tgbd);
-                DateTime TGKT = DateTime.Parse(tgkt);
+                
                 float Gia = float.Parse(gia);
 
 
-                context.UpdateKhoaHoc(id, MaKH, TenKH, Gia, TGBD, TGKT, MaLoai, MaHT);
+                context.UpdateKhoaHoc(id, MaKH, TenKH, Gia, Convert.ToDateTime(tgbd), Convert.ToDateTime(tgkt), MaLoai, MaHT);
                 context.SubmitChanges();
                 return RedirectToAction("Index");
 

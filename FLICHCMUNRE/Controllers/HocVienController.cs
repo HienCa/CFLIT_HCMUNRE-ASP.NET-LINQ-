@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using FLICHCMUNRE.Models;
+using ClosedXML.Excel;
+using System.IO;
+
 namespace FLICHCMUNRE.Controllers
+    
 {
     [Authorize]
     public class HocVienController : Controller
@@ -46,12 +51,12 @@ namespace FLICHCMUNRE.Controllers
                     String GioiTinh = Request.Form["GioiTinh"];
                     String Lop = Request.Form["Lop"];
 
-                    if (MaHV.Length ==0 && CCCD.Length == 0 && HoTen.Length == 0 && SDT.Length == 0 && NoiSinh.Length == 0)
+                    if (MaHV.Length == 0 && CCCD.Length == 0 && HoTen.Length == 0 && SDT.Length == 0 && NoiSinh.Length == 0)
                     {
                         TempData["CheckMaHV"] = "Vui lòng cung cấp MaHV hợp lệ!";
                         TempData["CheckCCCD"] = "Vui lòng cung cấp CCCD hợp lệ!";
                         TempData["CheckHoTen"] = "Vui lòng thông tin hợp lệ!";
-                        TempData["CheckSDT"] = "Vui lòng thông tin hợp lệ!"; 
+                        TempData["CheckSDT"] = "Vui lòng thông tin hợp lệ!";
                         TempData["CheckNoiSinh"] = "Vui lòng thông tin hợp lệ!";
 
                     }
@@ -185,5 +190,66 @@ namespace FLICHCMUNRE.Controllers
 
 
         }
+
+        public ActionResult ExportToCSV()
+        {
+            HCMUNREDataContext context = new HCMUNREDataContext();
+            List<AllHocVienResult> all = context.AllHocVien().ToList();
+
+            var builder = new StringBuilder();
+            builder.AppendLine("MSSX,Họ Tên, CCCD, EMAIL, Số Điện Thoại, Ngày Sinh, Nơi Sinh, Lớp, Giới Tính");
+            foreach (var hv in all)
+            {
+                builder.AppendLine($"{hv.MAHV}, {hv.HOTEN}, {hv.CCCD}, {hv.EMAIL}, {hv.SDT}, {hv.NGAYSINH}, {hv.NOISINH}, {hv.LOP}, {hv.GIOITINH}");
+            }
+
+            return File(Encoding.UTF8.GetBytes(builder.ToString()), "text / csv", "students.csv");
+            
+
+        }
+
+        public ActionResult ExportToExcel()
+        {
+            HCMUNREDataContext context = new HCMUNREDataContext();
+            List<AllHocVienResult> all = context.AllHocVien().ToList();
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Students");
+                var currentRow = 1;
+                worksheet.Cell(currentRow, 1).Value = "MSSV";
+                worksheet.Cell(currentRow, 2).Value = "Họ Tên";
+                worksheet.Cell(currentRow, 3).Value = "CCCD";
+                worksheet.Cell(currentRow, 4).Value = "EMAIL";
+                worksheet.Cell(currentRow, 5).Value = "Số Điện Thoại";
+                worksheet.Cell(currentRow, 6).Value = "Ngày Sinh";
+                worksheet.Cell(currentRow, 7).Value = "Nơi Sinh";
+                worksheet.Cell(currentRow, 8).Value = "Lớp";
+                worksheet.Cell(currentRow, 9).Value = "Giới Tính";
+                foreach (var hv in all)
+                {
+                    currentRow++;
+                    worksheet.Cell(currentRow, 1).Value = hv.MAHV;
+                    worksheet.Cell(currentRow, 2).Value = hv.HOTEN;
+                    worksheet.Cell(currentRow, 3).Value = hv.CCCD;
+                    worksheet.Cell(currentRow, 4).Value = hv.EMAIL;
+                    worksheet.Cell(currentRow, 5).Value = hv.SDT;
+                    worksheet.Cell(currentRow, 6).Value = hv.NGAYSINH;
+                    worksheet.Cell(currentRow, 7).Value = hv.NOISINH;
+                    worksheet.Cell(currentRow, 8).Value = hv.LOP;
+                    worksheet.Cell(currentRow, 9).Value = hv.GIOITINH;
+                }
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "students.xlsx");
+                }
+            }
+
+
+
+        }
+
     }
 }

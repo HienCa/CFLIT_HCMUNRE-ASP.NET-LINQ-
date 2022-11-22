@@ -23,8 +23,13 @@
                         @Html.ActionLink("QUẢN LÝ TÀI KHOẢN", "QLTKGV", "QLTKGV", new { @class = "p-3 bg-info  mt-3 w-100 rounded  text-white" })
                     </div>
 
+                    <div class="mt-5">
+                        @Html.ActionLink("NHẬP ĐIỂM", "NhapDiem", "GiangVien", new { @class = "p-3 bg-info  mt-3 w-100 rounded  text-white" })
+                    </div>
 
-
+                    <div class="mt-5">
+                        @Html.ActionLink("DANH SÁCH ĐIỂM", "DanhSachDaNhapDiem", "GiangVien", new { @class = "p-3 bg-info  mt-3 w-100 rounded  text-white" })
+                    </div>
 
                     <div class="mt-5">
                         @Html.ActionLink("HOME", "Index", "Home", "Home", new { @class = "p-3 bg-info  mt-3 w-100 rounded text-white" })
@@ -38,14 +43,14 @@
             </div>
 
             <div class="container mt-4 w-50">
-                <h2 class=" text-center text-white">UPDATE</h2>
+                <h2 class=" text-center text-white">CẬP NHẬT</h2>
                 <div class=" bg-white card text-center ">
                     @using (Html.BeginForm("UpdateTKGV", "TaiKhoan", FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
 
                         <div class="form-horizontal">
-                            <h4>CẬP NHẬT</h4>
+                            
                             <hr />
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             @Html.HiddenFor(model => model.ID)

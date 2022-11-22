@@ -22,7 +22,7 @@ namespace FLICHCMUNRE.Controllers
             List<AllGiangVienResult> GV = context.AllGiangVien().ToList();
             return View(GV);
         }
-
+        [Authorize]
         public ActionResult Details(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -32,6 +32,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(KH);
         }
+        [Authorize]
         public ActionResult Create()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -109,7 +110,7 @@ namespace FLICHCMUNRE.Controllers
             return View();
         }
 
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -170,6 +171,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(gv);
         }
+        [Authorize]
         public ActionResult Delete(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -178,7 +180,7 @@ namespace FLICHCMUNRE.Controllers
 
 
         }
-
+        [Authorize]
         public ActionResult Search()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -195,6 +197,7 @@ namespace FLICHCMUNRE.Controllers
 
 
         }
+        [Authorize]
         public ActionResult ExportToCSV()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -211,7 +214,7 @@ namespace FLICHCMUNRE.Controllers
 
 
         }
-
+        [Authorize]
         public ActionResult ExportToExcel()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -253,6 +256,14 @@ namespace FLICHCMUNRE.Controllers
 
 
 
+        }
+        [Authorize]
+        public ActionResult NhapDiem()
+        {
+            HCMUNREDataContext context = new HCMUNREDataContext();
+            ViewBag.Message = "Your contact page.";
+            List<AllGiangVienResult> GV = context.AllGiangVien().ToList();
+            return View();
         }
     }
 }

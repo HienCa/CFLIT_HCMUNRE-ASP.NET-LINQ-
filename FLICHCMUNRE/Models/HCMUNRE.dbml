@@ -451,21 +451,6 @@
       <Column Name="MAHT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.OneKhoaHocCT" Method="OneKhoaHocCT">
-    <Parameter Name="id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="OneKhoaHocCTResult">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="maht" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="tenht" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="maloai" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="makh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="tenkh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="gia" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="tenloai" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="TGBD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TGKT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.OneLopHoc" Method="OneLopHoc">
     <Parameter Name="id" Type="System.Int32" DbType="Int" />
     <ElementType Name="OneLopHocResult">
@@ -875,6 +860,76 @@
       <Column Name="NGAYSINH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="LOP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="STATUS1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DanhSachDaDangKyKhoaHoc" Method="DanhSachDaDangKyKhoaHoc">
+    <Parameter Name="MaHV" Parameter="maHV" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="DanhSachDaDangKyKhoaHocResult">
+      <Column Name="MaHV" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="lop" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CCCD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NoiSinh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGBD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGKT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NGAYDK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HocVienInfo" Method="HocVienInfo">
+    <Parameter Name="MaHV" Parameter="maHV" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="HocVienInfoResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MAHV" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CCCD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GIOITINH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NOISINH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LOP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DanhSachDaDangKyKhoaThi" Method="DanhSachDaDangKyKhoaThi">
+    <Parameter Name="MaHV" Parameter="maHV" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="DanhSachDaDangKyKhoaThiResult">
+      <Column Name="MaHV" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="lop" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CCCD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NoiSinh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGBD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGKT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NGAYDK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MaKH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.OneKhoaHocCT" Method="OneKhoaHocCT">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="OneKhoaHocCTResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="maht" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tenht" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="maloai" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="makh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tenkh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="gia" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tenloai" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TGBD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGKT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

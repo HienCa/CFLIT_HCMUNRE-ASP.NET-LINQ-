@@ -30,7 +30,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(allTK);
         }
-
+        [Authorize]
         public ActionResult QLQuanLy()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -41,7 +41,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(one);
         }
-
+        [Authorize]
         public ActionResult QLTKHV()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -52,7 +52,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(one);
         }
-
+        [Authorize]
         public ActionResult UpdateTKHV(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -75,7 +75,7 @@ namespace FLICHCMUNRE.Controllers
         }
 
 
-
+        [Authorize]
         public ActionResult QLTKGV()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -87,7 +87,7 @@ namespace FLICHCMUNRE.Controllers
             return View(one);
         }
 
-
+        [Authorize]
         public ActionResult UpdateTKGV(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -108,7 +108,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(tk);
         }
-
+        [Authorize]
         public ActionResult UpdateTKQL(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -129,6 +129,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(tk);
         }
+        [Authorize]
         public ActionResult Details(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -138,7 +139,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(TK);
         }
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -159,6 +160,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(tk);
         }
+        [Authorize]
         public ActionResult Delete(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -167,6 +169,7 @@ namespace FLICHCMUNRE.Controllers
 
 
         }
+        [Authorize]
         public ActionResult Create()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -191,7 +194,7 @@ namespace FLICHCMUNRE.Controllers
 
             catch (SqlException e)
             {
-                ViewBag.Error = "Tài khoản tồn tại.";
+                ViewBag.Error = "Tài khoản tồn tại."+e;
                 return RedirectToAction("Index");
             }
             return View();
@@ -200,7 +203,7 @@ namespace FLICHCMUNRE.Controllers
 
 
 
-
+        [Authorize]
         public ActionResult Search()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();

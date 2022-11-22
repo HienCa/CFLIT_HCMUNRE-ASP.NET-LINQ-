@@ -20,6 +20,7 @@ namespace FLICHCMUNRE.Controllers
             List<AllTheLoaiResult> allTL = context.AllTheLoai().ToList();
             return View(allTL);
         }
+        [Authorize]
         public ActionResult Details(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -29,6 +30,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(TL);
         }
+        [Authorize]
         public ActionResult Create()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -48,13 +50,13 @@ namespace FLICHCMUNRE.Controllers
             
             catch (SqlException e)
             {
-                ViewBag.Error = "Mã đã tồn tại, vui lòng chọn mã khác.";
+                ViewBag.Error = "Mã đã tồn tại, vui lòng chọn mã khác."+e;
                 return RedirectToAction("Index");
             }
             return View();
         }
 
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -74,6 +76,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(tk);
         }
+        [Authorize]
         public ActionResult Delete(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -82,6 +85,7 @@ namespace FLICHCMUNRE.Controllers
 
 
         }
+        [Authorize]
         public ActionResult Search()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -94,6 +98,7 @@ namespace FLICHCMUNRE.Controllers
             return View(search);
 
         }
+        [Authorize]
         public ActionResult I()
 
         {
@@ -102,7 +107,7 @@ namespace FLICHCMUNRE.Controllers
             List<THELOAI> t = context.THELOAIs.ToList();
             return View(t);
         }
-
+        [Authorize]
         public ActionResult De(int id)
 
         {
@@ -110,7 +115,7 @@ namespace FLICHCMUNRE.Controllers
             THELOAI tl = context.THELOAIs.FirstOrDefault(x => x.ID == id);
             return View(tl);
         }
-
+        [Authorize]
         public ActionResult Cr()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -128,7 +133,7 @@ namespace FLICHCMUNRE.Controllers
             }
             return View();
         }
-
+        [Authorize]
         public ActionResult Del(int id)
 
         {
@@ -147,7 +152,7 @@ namespace FLICHCMUNRE.Controllers
             }
             return View();
         }
-
+        [Authorize]
         public ActionResult Ed(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();

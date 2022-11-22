@@ -1,17 +1,17 @@
 ﻿@model FLICHCMUNRE.Models.OneLopHocResult
-
+@using FLICHCMUNRE.Models;
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>CẬP NHẬT</h2>
+<h2 class="text-white " style="margin-left:550px">CẬP NHẬT</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
+    <div class="form-horizontal text-white">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
@@ -50,20 +50,23 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.MAKH, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MAKH, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MAKH, "", new { @class = "text-danger" })
-            </div>
+            <select value="" style="outline: none" class="w-50   p-2 rounded " name="MaKH">
+                @foreach (var i in TempData["allKH"] as List<AllKhoaHocResult>)
+                {
+                    <option value="@i.makh">@i.tenkh</option>
+                }
+
+            </select>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-10 text-center">
+                <input type="submit" value="Save" class="btn bg-primary text-white w-25"  />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index","", new {@class="text-white" })
 </div>

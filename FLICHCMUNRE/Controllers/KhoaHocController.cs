@@ -32,6 +32,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(KH);
         }
+        [Authorize]
         public ActionResult Create()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -67,7 +68,7 @@ namespace FLICHCMUNRE.Controllers
             return View();
         }
 
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -93,7 +94,10 @@ namespace FLICHCMUNRE.Controllers
 
             }
             OneKhoaHocResult kh = context.OneKhoaHoc(id).FirstOrDefault();
-
+            List<AllTheLoaiResult> AllTL = context.AllTheLoai().ToList();
+            List<AllHinhThucResult> AllHT = context.AllHinhThuc().ToList();
+            TempData["AllTL"] = AllTL;
+            TempData["AllHT"] = AllHT;
             return View(kh);
         }
         public ActionResult Delete(int id)
@@ -104,7 +108,6 @@ namespace FLICHCMUNRE.Controllers
 
 
         }
-
         public ActionResult Search()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();

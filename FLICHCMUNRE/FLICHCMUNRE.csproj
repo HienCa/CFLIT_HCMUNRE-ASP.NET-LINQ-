@@ -282,6 +282,10 @@
     <Content Include="Views\DangKyThi\Search.cshtml" />
     <Content Include="Views\DangKyThi\Details.cshtml" />
     <Content Include="Views\LopHoc\Edit.cshtml" />
+    <Content Include="Views\GiangVien\NhapDiem.cshtml" />
+    <Content Include="Views\HocVien\TinhTrangDangKyHoc.cshtml" />
+    <Content Include="Views\HocVien\TinhTrangDangKyThi.cshtml" />
+    <Content Include="Views\HocVien\EditPersonal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

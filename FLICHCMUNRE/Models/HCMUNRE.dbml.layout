@@ -99,7 +99,7 @@
         <classShapeMoniker Id="9f00a6bd-e565-42a7-ac30-f0830ea44b1d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 10.25); (5.875 : 9.875); (5.875 : 8.01044840494792); (5.97916666666667 : 8.01044840494792 : JumpStart); (6.14583333333333 : 8.01044840494792 : JumpEnd); (6.25 : 8.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 10.25); (5.875 : 9.875); (5.875 : 8.01044840494792); (6.25 : 8.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HCMUNREDataContext/CA/CA_CHITIETKHOAHOC" />
       <nodes>
         <classShapeMoniker Id="84350351-265c-4c58-8ec2-58ebd9133179" />
@@ -120,7 +120,7 @@
         <classShapeMoniker Id="d81820fa-387d-407d-bb89-fd0bd9ae2b72" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.46769230769231 : 5.4920068359375); (6.0625 : 6.08681452824519); (6.0625 : 10.9815991210937); (6.25 : 10.9815991210937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.46769230769231 : 5.4920068359375); (5.81607443490112 : 5.84038896314631 : JumpStart); (5.99642556509888 : 6.02074009334407 : JumpEnd); (6.0625 : 6.08681452824519); (6.0625 : 10.9815991210937); (6.25 : 10.9815991210937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HCMUNREDataContext/HOCVIEN/HOCVIEN_CHITIETDANGKYTHI" />
       <nodes>
         <classShapeMoniker Id="c88efe04-f71f-4253-a618-592d94d864c7" />
@@ -134,7 +134,7 @@
         <classShapeMoniker Id="9f00a6bd-e565-42a7-ac30-f0830ea44b1d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 5.39662122055289); (5.81607443490112 : 5.71269565545401 : JumpStart); (5.93392556509888 : 5.83054678565177 : JumpEnd); (5.9375 : 5.83412122055289); (5.9375 : 7.53647220247396); (5.97916666666667 : 7.53647220247396 : JumpStart); (6.14583333333333 : 7.53647220247396 : JumpEnd); (6.25 : 7.53647220247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 5.39662122055289); (5.81607443490112 : 5.71269565545401 : JumpStart); (5.93392556509888 : 5.83054678565177 : JumpEnd); (5.9375 : 5.83412122055289); (5.9375 : 7.53647220247396); (6.25 : 7.53647220247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HCMUNREDataContext/HOCVIEN/HOCVIEN_CHITIETKHOAHOC" />
       <nodes>
         <classShapeMoniker Id="c88efe04-f71f-4253-a618-592d94d864c7" />
@@ -155,21 +155,21 @@
         <classShapeMoniker Id="d81820fa-387d-407d-bb89-fd0bd9ae2b72" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 9.09780110677083); (5.81607443490112 : 9.41387554167195 : JumpStart); (5.93392556509888 : 9.53172667186971 : JumpEnd); (6.00357443490112 : 9.60137554167195 : JumpStart); (6.12142556509888 : 9.71922667186971 : JumpEnd); (6.125 : 9.72280110677083); (6.125 : 10.4595475605469); (6.25 : 10.4595475605469)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 9.09780110677083); (5.81607443490112 : 9.41387554167195 : JumpStart); (5.93392556509888 : 9.53172667186971 : JumpEnd); (6.125 : 9.72280110677083); (6.125 : 10.4595475605469); (6.25 : 10.4595475605469)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HCMUNREDataContext/KHOAHOC/KHOAHOC_CHITIETDANGKYTHI" />
       <nodes>
         <classShapeMoniker Id="e200a8a1-dd02-4d90-b59a-14b71fff8cb5" />
         <classShapeMoniker Id="e7795240-d891-47d1-aba2-e4e4db28bb40" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.48912038489302 : 9.09780110677083); (5.40625 : 9.47280110677083); (5.40625 : 9.3381982421875); (5.6386022636218 : 9.3381982421875 : JumpStart); (5.80526893028846 : 9.3381982421875 : JumpEnd); (5.97916666666667 : 9.3381982421875 : JumpStart); (6.14583333333333 : 9.3381982421875 : JumpEnd); (8.875 : 9.3381982421875); (9.25 : 8.9631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.48912038489302 : 9.09780110677083); (5.40625 : 9.47280110677083); (5.40625 : 9.3381982421875); (5.6386022636218 : 9.3381982421875 : JumpStart); (5.95833333333333 : 9.3381982421875 : JumpEnd); (5.97916666666667 : 9.3381982421875 : JumpStart); (6.14583333333333 : 9.3381982421875 : JumpEnd); (8.875 : 9.3381982421875); (9.25 : 8.9631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HCMUNREDataContext/KHOAHOC/KHOAHOC_CHITIETKETQUA" />
       <nodes>
         <classShapeMoniker Id="e200a8a1-dd02-4d90-b59a-14b71fff8cb5" />
         <classShapeMoniker Id="9f00a6bd-e565-42a7-ac30-f0830ea44b1d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 8.51567260742188); (5.97916666666667 : 8.51567260742188 : JumpStart); (6.14583333333333 : 8.51567260742188 : JumpEnd); (6.25 : 8.51567260742188)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 8.51567260742188); (5.79166666666667 : 8.51567260742188 : JumpStart); (5.95833333333333 : 8.51567260742188 : JumpEnd); (5.97916666666667 : 8.51567260742188 : JumpStart); (6.14583333333333 : 8.51567260742188 : JumpEnd); (6.25 : 8.51567260742188)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HCMUNREDataContext/KHOAHOC/KHOAHOC_CHITIETKHOAHOC" />
       <nodes>
         <classShapeMoniker Id="e200a8a1-dd02-4d90-b59a-14b71fff8cb5" />
@@ -190,7 +190,7 @@
         <classShapeMoniker Id="8dfaba2c-12f3-4171-905e-b7c7bccd9465" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.48153846153846 : 9.09780110677083); (5.96875 : 9.58501264523237); (5.96875 : 18.6065991210938); (6.25 : 18.6065991210938)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.48153846153846 : 9.09780110677083); (5.81607443490112 : 9.43233708013349 : JumpStart); (5.93392556509888 : 9.55018821033125 : JumpEnd); (5.96875 : 9.58501264523237); (5.96875 : 18.6065991210938); (6.25 : 18.6065991210938)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HCMUNREDataContext/KHOAHOC/KHOAHOC_LOP" />
       <nodes>
         <classShapeMoniker Id="e200a8a1-dd02-4d90-b59a-14b71fff8cb5" />

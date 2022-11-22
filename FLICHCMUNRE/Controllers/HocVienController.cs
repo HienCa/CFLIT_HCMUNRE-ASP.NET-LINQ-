@@ -25,6 +25,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(HV);
         }
+        [Authorize]
         public ActionResult Details(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -34,6 +35,7 @@ namespace FLICHCMUNRE.Controllers
 
             return View(KH);
         }
+        [Authorize]
         public ActionResult Create()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -103,7 +105,7 @@ namespace FLICHCMUNRE.Controllers
             return View();
         }
 
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -167,6 +169,71 @@ namespace FLICHCMUNRE.Controllers
 
             return View(kh);
         }
+        [Authorize]
+        public ActionResult EditPersonal(int id)
+        {
+            HCMUNREDataContext context = new HCMUNREDataContext();
+            if (Request.Form.Count > 0)
+            {
+
+                String MaHV = Request.Form["MaHV"];
+                String CCCD = Request.Form["CCCD"];
+                String HoTen = Request.Form["HoTen"];
+                String Email = Request.Form["Email"];
+                String SDT = Request.Form["SDT"];
+                String NgaySinh = Request.Form["NgaySinh"];
+                String NoiSinh = Request.Form["NoiSinh"];
+                String GioiTinh = Request.Form["GioiTinh"];
+                String Lop = Request.Form["Lop"];
+
+                if (MaHV.Length == 0 && CCCD.Length == 0 && HoTen.Length == 0 && SDT.Length == 0 && NoiSinh.Length == 0)
+                {
+                    TempData["CheckMaHV"] = "Vui lòng cung cấp MaHV hợp lệ!";
+                    TempData["CheckCCCD"] = "Vui lòng cung cấp CCCD hợp lệ!";
+                    TempData["CheckHoTen"] = "Vui lòng thông tin hợp lệ!";
+                    TempData["CheckSDT"] = "Vui lòng thông tin hợp lệ!";
+                    TempData["CheckNoiSinh"] = "Vui lòng thông tin hợp lệ!";
+
+                }
+                else if (MaHV.Length < 8 || MaHV.Length > 20)
+                {
+                    ViewBag["CheckMaHV"] = "Vui lòng cung cấp MaHV hợp lệ!";
+
+                }
+                else if (CCCD.Length < 9 || CCCD.Length > 12)
+                {
+                    ViewBag["CheckCCCD"] = "Vui lòng cung cấp CCCD hợp lệ!";
+
+                }
+                else if (HoTen.Length < 4 || HoTen.Length > 200)
+                {
+                    ViewBag["CheckHoTen"] = "Vui lòng thông tin hợp lệ!";
+
+                }
+                else if (SDT.Length < 9 || HoTen.Length > 50)
+                {
+                    ViewBag["CheckSDT"] = "Vui lòng thông tin hợp lệ!";
+
+                }
+                else if (NoiSinh.Length < 4 || NoiSinh.Length > 200)
+                {
+                    ViewBag["CheckNoiSinh"] = "Vui lòng thông tin hợp lệ!";
+
+                }
+                else
+                {
+                    context.UpdateHocVien(id, MaHV, HoTen, Email, CCCD, SDT, GioiTinh, NoiSinh, Convert.ToDateTime(NgaySinh), Lop);
+
+                    context.SubmitChanges();
+                }
+                return RedirectToAction("TinhTrangDangKyHoc","HocVien");
+
+            }
+            OneHocVienResult kh = context.OneHocVien(id).FirstOrDefault();
+
+            return View(kh);
+        }
+        [Authorize]
         public ActionResult Delete(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -175,7 +242,7 @@ namespace FLICHCMUNRE.Controllers
 
 
         }
-
+        [Authorize]
         public ActionResult Search()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -190,7 +257,7 @@ namespace FLICHCMUNRE.Controllers
 
 
         }
-
+        [Authorize]
         public ActionResult ExportToCSV()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -207,7 +274,7 @@ namespace FLICHCMUNRE.Controllers
             
 
         }
-
+        [Authorize]
         public ActionResult ExportToExcel()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -249,6 +316,22 @@ namespace FLICHCMUNRE.Controllers
 
 
 
+        }
+        [Authorize]
+        public ActionResult TinhTrangDangKyHoc()
+        {
+            HCMUNREDataContext context = new HCMUNREDataContext();
+            TempData["DanhSachDangKy"]  = context.DanhSachDaDangKyKhoaHoc(User.Identity.Name).ToList();
+            HocVienInfoResult hv = context.HocVienInfo(User.Identity.Name).FirstOrDefault();
+            return View(hv);
+        }
+        [Authorize]
+        public ActionResult TinhTrangDangKyThi()
+        {
+            HCMUNREDataContext context = new HCMUNREDataContext();
+            TempData["DanhSachDangKyThi"] = context.DanhSachDaDangKyKhoaThi(User.Identity.Name).ToList();
+            HocVienInfoResult hv = context.HocVienInfo(User.Identity.Name).FirstOrDefault();
+            return View(hv);
         }
 
     }

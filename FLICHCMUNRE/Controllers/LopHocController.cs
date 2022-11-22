@@ -19,7 +19,7 @@ namespace FLICHCMUNRE.Controllers
             ViewData["allKH"] = context.AllKhoaHoc().ToList();
             return View(lophoc);
         }
-
+        [Authorize]
         public ActionResult Details(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -51,13 +51,13 @@ namespace FLICHCMUNRE.Controllers
 
             catch (SqlException e)
             {
-                ViewBag.Error = "Mã đã tồn tại, vui lòng chọn mã khác.";
+                ViewBag.Error = "Mã đã tồn tại, vui lòng chọn mã khác."+e;
                 return RedirectToAction("Index");
             }
             return View();
         }
 
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -76,9 +76,10 @@ namespace FLICHCMUNRE.Controllers
 
             }
             OneLopHocResult tk = context.OneLopHoc(id).FirstOrDefault();
-
+            TempData["allKH"] = context.AllKhoaHoc().ToList();
             return View(tk);
         }
+        [Authorize]
         public ActionResult Delete(int id)
         {
             HCMUNREDataContext context = new HCMUNREDataContext();
@@ -87,7 +88,7 @@ namespace FLICHCMUNRE.Controllers
 
 
         }
-
+        [Authorize]
         public ActionResult Search()
         {
             HCMUNREDataContext context = new HCMUNREDataContext();

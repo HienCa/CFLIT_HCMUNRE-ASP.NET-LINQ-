@@ -1,7 +1,7 @@
 ﻿@model FLICHCMUNRE.Models.OneTaiKhoanResult
 
-<div>
-    <h4>Chi tiết tài khoản</h4>
+<div class="" style="margin-left:100px ; color:white">
+    <h4 class="text-white">Chi tiết tài khoản</h4>
     <hr />
     <dl class="dl-horizontal d-flex">
         <dt>
@@ -13,15 +13,18 @@
         </dd>
 
         <dt>
-            @Html.DisplayName("Mật Khẩu: ")
+            @Html.DisplayName("   Mật Khẩu: ")
         </dt>
+
+
 
         <dd>
             @Html.DisplayFor(model => model.MK)
         </dd>
 
+
         <dt>
-            @Html.DisplayName("Vai Tro: ")
+            @Html.DisplayName("   Vai Trò: ")
         </dt>
 
         <dd>
@@ -30,7 +33,7 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "QLAdmin")
+<p style="margin-left:100px ;">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "text-white" }) |
+    @Html.ActionLink("Back to List", "QLAdmin", new { @class = "text-white" }, new { @class = "text-white" })
 </p>
